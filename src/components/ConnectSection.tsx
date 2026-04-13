@@ -23,8 +23,11 @@ export const ConnectSection: React.FC<ConnectSectionProps> = ({ gradeLevel, setG
   const handleSpeak = async (text: string) => {
     if (isSpeaking) return;
     setIsSpeaking(true);
-    await speak(text, 'cheerful');
-    setIsSpeaking(false);
+    try {
+      await speak(text, 'cheerful');
+    } finally {
+      setIsSpeaking(false);
+    }
   };
 
   const phrases = gradeLevel === 'lower' ? weekData.keyPhrases.lower : weekData.keyPhrases.upper;

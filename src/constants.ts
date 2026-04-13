@@ -510,49 +510,38 @@ export const WEEKS: WeekData[] = [
   },
   {
     id: 'lend-a-hand',
-    title: 'LEND A HAND!',
+    title: 'LEND A HAND',
     badge: 'Week 6 🤝',
     description: 'Polite requests and helpfulness. Learn how to ask for help the right way!',
     descriptionId: 'Permintaan sopan dan sikap suka menolong. Pelajari cara meminta bantuan dengan benar!',
     goals: {
       lower: 'I can ask for help politely using "Could you please...?"',
       lowerId: 'Saya bisa meminta bantuan dengan sopan menggunakan "Could you please...?"',
-      upper: 'I can make and respond to polite requests using "Would you mind...?"',
-      upperId: 'Saya bisa membuat dan menanggapi permintaan sopan menggunakan "Would you mind...?"'
+      upper: 'I can make polite requests using "Would you mind...?"',
+      upperId: 'Saya bisa membuat permintaan sopan menggunakan "Would you mind...?"'
     },
     materials: [
-      'PPT Slides (Display Mode)',
-      'Request scenario cards',
-      'Cardstock paper (for hand-shaped cutouts)',
-      'Colored paper (red, yellow, green for Politeness Traffic Light)',
-      'Markers, crayons, colored pencils',
-      'Scissors, glue sticks',
-      'String or yarn',
-      'Hole punch',
-      'Sticky notes',
-      'Large poster paper',
-      'Small reward stickers'
+      'Plain paper (for hand tracing)',
+      'Index cards or half-sheets of paper (for UG request cards)',
+      'Crayons, markers, colored pencils',
+      'Glue stick',
+      'Pencils'
     ],
     materialsId: [
-      'Slide PPT (Mode Tampilan)',
-      'Kartu skenario permintaan',
-      'Kertas karton (untuk potongan bentuk tangan)',
-      'Kertas warna (merah, kuning, hijau untuk Lampu Lalu Lintas Kesopanan)',
-      'Spidol, krayon, pensil warna',
-      'Gunting, lem stik',
-      'Tali atau benang',
-      'Pelubang kertas',
-      'Catatan tempel (Sticky notes)',
-      'Kertas poster besar',
-      'Stiker hadiah kecil'
+      'Kertas polos (untuk menjiplak tangan)',
+      'Kartu indeks atau setengah lembar kertas (untuk kartu permintaan UG)',
+      'Krayon, spidol, pensil warna',
+      '1 kertas poster besar (untuk pajangan kelas)',
+      'Lem stik',
+      'Pensil'
     ],
     review: {
-      title: 'Week 5 Review: Rule Charades',
-      titleId: 'Tinjauan Minggu 5: Tebak Gerakan Aturan',
-      activity: 'Act out a rule (e.g., "Don\'t run in the hallway"), others guess using "You must..." or "You must not..."',
-      activityId: 'Peragakan sebuah aturan (misal: "Jangan lari di koridor"), yang lain menebak menggunakan "You must..." atau "You must not..."',
-      connection: 'Last week was about rules. This week is about asking for help politely!',
-      connectionId: 'Minggu lalu tentang aturan. Minggu ini tentang meminta bantuan dengan sopan!'
+      title: 'WEEK 5 REVIEW',
+      titleId: 'TINJAUAN MINGGU 5',
+      activity: 'Quick vocabulary game or sharing activity.',
+      activityId: 'Permainan kosakata cepat atau aktivitas berbagi.',
+      connection: 'Last week we learned about Rules. This week, we learn how to ask for help politely!',
+      connectionId: 'Minggu lalu kita belajar tentang Aturan. Minggu ini, kita belajar cara meminta bantuan dengan sopan!'
     },
     keyPhrases: {
       lower: [
@@ -582,24 +571,24 @@ export const WEEKS: WeekData[] = [
     },
     vocab: {
       lower: [
-        { word: 'help', meaning: 'membantu', meaningId: 'membantu', example: 'Could you please help me?', exampleId: 'Bisakah kamu membantu saya?', emoji: '🤲', image: 'https://loremflickr.com/400/400/cartoon,help' },
-        { word: 'please', meaning: 'tolong', meaningId: 'tolong', example: 'Could you please open the door?', exampleId: 'Tolong bukakan pintunya.', emoji: '🙏', image: 'https://loremflickr.com/400/400/cartoon,pray' },
-        { word: 'carry', meaning: 'membawa', meaningId: 'membawa', example: 'Could you please carry these books?', exampleId: 'Bisakah kamu bantu membawakan buku ini?', emoji: '📚', image: 'https://loremflickr.com/400/400/cartoon,carry' },
-        { word: 'open', meaning: 'membuka', meaningId: 'membuka', example: 'Could you please open the window?', exampleId: 'Bisakah kamu membukakan jendelanya?', emoji: '🚪', image: 'https://loremflickr.com/400/400/cartoon,door' },
-        { word: 'share', meaning: 'berbagi', meaningId: 'berbagi', example: 'Can you share your crayons with me?', exampleId: 'Bisakah kamu berbagi krayon dengan saya?', emoji: '↔️', image: 'https://loremflickr.com/400/400/cartoon,share' },
-        { word: 'borrow', meaning: 'meminjam', meaningId: 'meminjam', example: 'Can I borrow your eraser, please?', exampleId: 'Bolehkah saya meminjam penghapusmu?', emoji: '🫳', image: 'https://loremflickr.com/400/400/cartoon,borrow' },
-        { word: 'sorry', meaning: 'maaf', meaningId: 'maaf', example: "I'm sorry, I can't right now.", exampleId: 'Maaf, saya tidak bisa sekarang.', emoji: '🙇', image: 'https://loremflickr.com/400/400/cartoon,sorry' },
-        { word: 'thank you', meaning: 'terima kasih', meaningId: 'terima kasih', example: 'Thank you for helping me!', exampleId: 'Terima kasih sudah membantu saya!', emoji: '❤️', image: 'https://loremflickr.com/400/400/cartoon,heart' },
+        { word: 'help', meaning: 'membantu', meaningId: 'membantu', example: 'Could you please help me?', exampleId: 'Bisakah kamu membantu saya?', emoji: '🤲', image: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFjY3c0aGoyZ3UycWc3d2N3NmNsYnpqMjl2OXk4MzBvM2Q2ZDd1OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/phJ6eMRFYI6CQ/giphy.gif' },
+        { word: 'please', meaning: 'tolong', meaningId: 'tolong', example: 'Could you please open the door?', exampleId: 'Tolong bukakan pintunya.', emoji: '🙏', image: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHdzczFhdG85dXI0eXN1b2lsZzI5cXV3YnN6ZzBmN2w5ZmFxamRoNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zZbf6UpZslp3nvFjIR/giphy.webp' },
+        { word: 'carry', meaning: 'membawa', meaningId: 'membawa', example: 'Could you please carry these books?', exampleId: 'Bisakah kamu bantu membawakan buku ini?', emoji: '📚', image: 'https://media.tenor.com/nuCeLTABSTsAAAAM/jalan-book.gif' },
+        { word: 'open', meaning: 'membuka', meaningId: 'membuka', example: 'Could you please open the window?', exampleId: 'Bisakah kamu membukakan jendelanya?', emoji: '🚪', image: 'https://media.tenor.com/5A5JktUc8HkAAAAM/cat-door.gif' },
+        { word: 'share', meaning: 'berbagi', meaningId: 'berbagi', example: 'Can you share your crayons with me?', exampleId: 'Bisakah kamu berbagi krayon dengan saya?', emoji: '↔️', image: 'https://media.tenor.com/dgjNDMb_w2IAAAAM/summer-friends.gif' },
+        { word: 'borrow', meaning: 'meminjam', meaningId: 'meminjam', example: 'Can I borrow your eraser, please?', exampleId: 'Bolehkah saya meminjam penghapusmu?', emoji: '🫳', image: 'https://media.tenor.com/58v2JCMvUEQAAAAM/steal-funny.gif' },
+        { word: 'sorry', meaning: 'maaf', meaningId: 'maaf', example: "I'm sorry, I can't right now.", exampleId: 'Maaf, saya tidak bisa sekarang.', emoji: '🙇', image: 'https://media.tenor.com/AhHan4Njj1EAAAAM/lee-funny.gif' },
+        { word: 'thank you', meaning: 'terima kasih', meaningId: 'terima kasih', example: 'Thank you for helping me!', exampleId: 'Terima kasih sudah membantu saya!', emoji: '❤️', image: 'https://media.tenor.com/E7HE7oJ-kMIAAAAm/youre-welcome-yw.webp' },
       ],
       upper: [
-        { word: 'assist', meaning: 'membantu (formal)', meaningId: 'membantu (formal)', example: 'Could you please assist me with this?', exampleId: 'Bisakah Anda membantu saya dengan ini?', emoji: '🤝', image: 'https://loremflickr.com/400/400/cartoon,handshake' },
-        { word: 'mind', meaning: 'keberatan', meaningId: 'keberatan', example: 'Would you mind opening the door?', exampleId: 'Apakah Anda keberatan membukakan pintu?', emoji: '🤔', image: 'https://loremflickr.com/400/400/cartoon,think' },
-        { word: 'certainly', meaning: 'tentu saja', meaningId: 'tentu saja', example: 'Yes, certainly! I\'ll do it now.', exampleId: 'Ya, tentu saja! Saya akan melakukannya sekarang.', emoji: '👍', image: 'https://loremflickr.com/400/400/cartoon,ok' },
-        { word: 'help', meaning: 'membantu', meaningId: 'membantu', example: 'Could you please help me?', exampleId: 'Bisakah kamu membantu saya?', emoji: '🤲', image: 'https://loremflickr.com/400/400/cartoon,help' },
-        { word: 'please', meaning: 'tolong', meaningId: 'tolong', example: 'Could you please open the door?', exampleId: 'Tolong bukakan pintunya.', emoji: '🙏', image: 'https://loremflickr.com/400/400/cartoon,pray' },
-        { word: 'carry', meaning: 'membawa', meaningId: 'membawa', example: 'Could you please carry these books?', exampleId: 'Bisakah kamu membawakan buku ini?', emoji: '📚', image: 'https://loremflickr.com/400/400/cartoon,carry' },
-        { word: 'open', meaning: 'membuka', meaningId: 'membuka', example: 'Could you please open the window?', exampleId: 'Bisakah kamu membukakan jendelanya?', emoji: '🚪', image: 'https://loremflickr.com/400/400/cartoon,door' },
-        { word: 'thank you', meaning: 'terima kasih', meaningId: 'terima kasih', example: 'No problem. Thank you anyway!', exampleId: 'Tidak masalah. Terima kasih!', emoji: '❤️', image: 'https://loremflickr.com/400/400/cartoon,heart' },
+        { word: 'assist', meaning: 'membantu (formal)', meaningId: 'membantu (formal)', example: 'Could you please assist me with this?', exampleId: 'Bisakah Anda membantu saya dengan ini?', emoji: '🤝', image: 'https://media.tenor.com/RsrT-r7yqpYAAAAM/toy-story-buzz-lightyear.gif' },
+        { word: 'mind', meaning: 'keberatan', meaningId: 'keberatan', example: 'Would you mind opening the door?', exampleId: 'Apakah Anda keberatan membukakan pintu?', emoji: '🤔', image: 'https://media.tenor.com/yxueLwFC-ZcAAAAm/cat-thinking.webp' },
+        { word: 'certainly', meaning: 'tentu saja', meaningId: 'tentu saja', example: 'Yes, certainly! I\'ll do it now.', exampleId: 'Ya, tentu saja! Saya akan melakukannya sekarang.', emoji: '👍', image: 'https://media.tenor.com/e2ITpfUYmi0AAAAm/of-course-purple-exclamation-lines-around-of-course-in-blue-bubble-letters.webp' },
+        { word: 'help', meaning: 'membantu', meaningId: 'membantu', example: 'Could you please help me?', exampleId: 'Bisakah kamu membantu saya?', emoji: '🤲', image: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjFjY3c0aGoyZ3UycWc3d2N3NmNsYnpqMjl2OXk4MzBvM2Q2ZDd1OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/phJ6eMRFYI6CQ/giphy.gif' },
+        { word: 'please', meaning: 'tolong', meaningId: 'tolong', example: 'Could you please open the door?', exampleId: 'Tolong bukakan pintunya.', emoji: '🙏', image: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcHdzczFhdG85dXI0eXN1b2lsZzI5cXV3YnN6ZzBmN2w5ZmFxamRoNiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/zZbf6UpZslp3nvFjIR/giphy.webp' },
+        { word: 'carry', meaning: 'membawa', meaningId: 'membawa', example: 'Could you please carry these books?', exampleId: 'Bisakah kamu membawakan buku ini?', emoji: '📚', image: 'https://media.tenor.com/nuCeLTABSTsAAAAM/jalan-book.gif' },
+        { word: 'open', meaning: 'membuka', meaningId: 'membuka', example: 'Could you please open the window?', exampleId: 'Bisakah kamu membukakan jendelanya?', emoji: '🚪', image: 'https://media.tenor.com/6yA5LQTCWl8AAAAM/levi-attack-on-titan.gif' },
+        { word: 'thank you', meaning: 'terima kasih', meaningId: 'terima kasih', example: 'No problem. Thank you anyway!', exampleId: 'Tidak masalah. Terima kasih!', emoji: '❤️', image: 'https://media.tenor.com/E7HE7oJ-kMIAAAAm/youre-welcome-yw.webp' },
       ]
     },
     scramble: {
@@ -743,52 +732,44 @@ export const WEEKS: WeekData[] = [
     },
     physicalOutput: {
       lower: {
-        title: 'Helping Hand Request Cards',
-        titleId: 'Kartu Permintaan Tangan Penolong',
+        title: '“Polite Hand” Drawing',
+        titleId: 'Gambar "Tangan Sopan"',
         steps: [
-          'Trace your hand on cardstock paper.',
-          'On the Thumb, write: "Could you please help me?"',
-          'On the Index, write: "Could you please share?"',
-          'On the Middle, write: "Could you please open?"',
-          'On the Ring, write: "Could you please carry?"',
-          'On the Pinky, write: "Could you please borrow?"',
-          'Decorate and cut out your hand!'
+          'Trace your hand on a piece of paper.',
+          'Inside the hand, write ONE polite request: "Could you please help me?" or "Could you please open the door?"',
+          'Decorate with colors. (No cutting, just draw, write, color).',
         ],
         stepsId: [
-          'Jiplak tanganmu di atas kertas karton.',
-          'Di Jempol, tulis: "Could you please help me?"',
-          'Di Telunjuk, tulis: "Could you please share?"',
-          'Di Jari Tengah, tulis: "Could you please open?"',
-          'Di Jari Manis, tulis: "Could you please carry?"',
-          'Di Kelingking, tulis: "Could you please borrow?"',
-          'Hias dan gunting tanganmu!'
+          'Jiplak tanganmu di selembar kertas.',
+          'Di dalam gambar tangan, tulis SATU permintaan sopan: "Could you please help me?" atau "Could you please open the door?"',
+          'Hias dengan warna. (Tidak perlu digunting, cukup gambar, tulis, warnai).',
+          'Tempelkan gambar tanganmu di poster kelas.'
         ],
-        keep: 'Take home or paste in your book.',
-        keepId: 'Bawa pulang atau tempel di bukumu.',
-        example: 'Could you please help me open my bottle?',
-        exampleId: 'Could you please help me open my bottle? (Bisakah kamu bantu saya membuka botol?)'
+        keep: 'The class can display it on the classroom wall.',
+        keepId: 'Guru akan memajangnya di dinding kelas.',
+        example: 'Could you please help me?',
+        exampleId: 'Could you please help me? (Bisakah kamu membantu saya?)'
       },
       upper: {
-        title: '"Would You Mind?" Accordion Book',
-        titleId: 'Buku Akordion "Would You Mind?"',
+        title: '“Request Card”',
+        titleId: '“Kartu Permintaan”',
         steps: [
-          'Take a strip of paper (30cm x 10cm).',
-          'Fold it into 6 panels (accordion style).',
-          'On each panel, write one polite request using "Would you mind...?" + gerund.',
-          'Draw a small illustration for each request.',
-          'Examples: "Would you mind opening the window?", "Would you mind explaining again?"'
+          'Receive one small card.',
+          'Write ONE polite request using "Would you mind...?"',
+          'Example: "Would you mind opening the window?" or "Would you mind helping me carry this?"',
+          'Decorate simply with drawings or borders.',
         ],
         stepsId: [
-          'Ambil selembar kertas panjang (30cm x 10cm).',
-          'Lipat menjadi 6 panel (gaya akordion).',
-          'Di setiap panel, tulis satu permintaan sopan menggunakan "Would you mind...?" + gerund.',
-          'Gambar ilustrasi kecil untuk setiap permintaan.',
-          'Contoh: "Would you mind opening the window?", "Would you mind explaining again?"'
+          'Terima satu kartu kecil (kartu indeks atau setengah lembar).',
+          'Tulis SATU permintaan sopan menggunakan "Would you mind...?"',
+          'Contoh: "Would you mind opening the window?" atau "Would you mind helping me carry this?"',
+          'Hias secara sederhana dengan gambar atau bingkai.',
+          'Tempelkan kartu permintaanmu di poster kelas.'
         ],
-        keep: 'Fold and store in your book or take home.',
-        keepId: 'Lipat dan simpan di bukumu atau bawa pulang.',
-        example: 'Would you mind explaining the math problem again?',
-        exampleId: 'Would you mind explaining the math problem again? (Apakah Anda keberatan menjelaskan soal matematika itu lagi?)'
+        keep: 'The class can display it on the classroom wall.',
+        keepId: 'Guru akan memajangnya di dinding kelas.',
+        example: 'Would you mind opening the window?',
+        exampleId: 'Would you mind opening the window? (Apakah Anda keberatan membukakan jendelanya?)'
       }
     },
     alternativeOutputs: [
@@ -801,57 +782,12 @@ export const WEEKS: WeekData[] = [
         upperId: 'Buat diagram alur permintaan sopan → tanggapan → terima kasih'
       },
       { 
-        type: 'Mobile', 
-        typeId: 'Gantungan (Mobile)',
-        lower: 'Hang hand-shaped requests from a hanger using string', 
-        lowerId: 'Gantung permintaan berbentuk tangan dari gantungan baju menggunakan tali',
-        upper: 'Hang request/response pairs (e.g., "Would you mind..." and "Not at all!")',
-        upperId: 'Gantung pasangan permintaan/tanggapan (misal: "Would you mind..." dan "Not at all!")'
-      },
-      { 
-        type: 'Comic Strip', 
-        typeId: 'Komik Strip',
-        lower: '3-panel comic: 1. Problem, 2. Request, 3. Help + Thank you', 
-        lowerId: 'Komik 3 panel: 1. Masalah, 2. Permintaan, 3. Bantuan + Terima kasih',
-        upper: '4-panel comic with a polite refusal + graceful acceptance',
-        upperId: 'Komik 4 panel dengan penolakan sopan + penerimaan yang anggun'
-      },
-      { 
         type: 'Politeness Traffic Light', 
         typeId: 'Lampu Lalu Lintas Kesopanan',
         lower: 'Red (Rude), Yellow (Okay), Green (Polite) circles with examples.', 
         lowerId: 'Lingkaran Merah (Kasar), Kuning (Biasa), Hijau (Sopan) dengan contoh.',
         upper: 'Same, but write more complex example phrases for each color.',
         upperId: 'Sama, tapi tulis frasa contoh yang lebih kompleks untuk setiap warna.'
-      }
-    ],
-    lessonTasks: [
-      { 
-        title: 'TASK 1: MODEL & DRILL', 
-        titleId: 'TUGAS 1: MODEL & LATIHAN',
-        time: '5 min', 
-        lower: 'Teacher models "Could you please...?" with gestures. Students repeat. Practice responses: "Yes, certainly!" and "Sorry, I can\'t."', 
-        lowerId: 'Guru mencontohkan "Could you please...?" dengan gerakan. Siswa mengulangi. Latih tanggapan: "Yes, certainly!" dan "Sorry, I can\'t."',
-        upper: 'Teacher models "Would you mind + gerund?" Explain gerund rule. Practice responses: "Not at all!" and "I\'m sorry, I\'m busy."',
-        upperId: 'Guru mencontohkan "Would you mind + gerund?" Jelaskan aturan gerund. Latih tanggapan: "Not at all!" dan "I\'m sorry, I\'m busy."'
-      },
-      { 
-        title: 'TASK 2: REQUEST CHAIN GAME', 
-        titleId: 'TUGAS 2: PERMAINAN RANTAI PERMINTAAN',
-        time: '10 min', 
-        lower: 'Circle chain: A asks B "Could you please smile?" B responds and asks C. Continue.', 
-        lowerId: 'Rantai lingkaran: A bertanya pada B "Could you please smile?" B menjawab dan bertanya pada C. Lanjutkan.',
-        upper: 'Circle chain with polite refusals: "Would you mind passing this?" → "I\'m sorry, I can\'t right now."',
-        upperId: 'Rantai lingkaran dengan penolakan sopan: "Would you mind passing this?" → "I\'m sorry, I can\'t right now."'
-      },
-      { 
-        title: 'TASK 3: SCENARIO ROLE-PLAY', 
-        titleId: 'TUGAS 3: ROLE-PLAY SKENARIO',
-        time: '10 min', 
-        lower: 'Pairs practice 4 simple scenarios (need pencil, can\'t reach book, don\'t understand, hands full). Use sentence frames.', 
-        lowerId: 'Berpasangan melatih 4 skenario sederhana (butuh pensil, tidak bisa menjangkau buku, tidak paham, tangan penuh). Gunakan bingkai kalimat.',
-        upper: 'Pairs practice formal scenarios (teacher extension, borrowing equipment, principal\'s time, lowering voice). Include accepting refusal gracefully.',
-        upperId: 'Berpasangan melatih skenario formal (perpanjangan waktu guru, meminjam peralatan, waktu kepala sekolah, merendahkan suara). Termasuk menerima penolakan dengan anggun.'
       }
     ],
     share: {
@@ -872,6 +808,48 @@ export const WEEKS: WeekData[] = [
         activityId: 'Thank you, ______, for ______. (Tempel di poster Tangan Penolong)'
       }
     },
+    templates: [
+      {
+        title: 'Lower Grades – Hand Drawing Template',
+        titleId: 'Templat Gambar Tangan – Kelas Bawah',
+        content: `╔═══════════════════════════════════════════════╗
+║                MY POLITE HAND                 ║
+╠═══════════════════════════════════════════════╣
+║                                               ║
+║ 1. Trace your hand here:                      ║
+║                                               ║
+║     🖐️(space for tracing)                     ║
+║                                               ║
+║ 2. Inside the hand, write ONE polite request: ║
+║                                               ║
+║      "Could you please ________________?"     ║
+║                                               ║
+║ 3. Decorate with colors!                      ║
+║                                               ║
+╚═══════════════════════════════════════════════╝`
+      },
+      {
+        title: 'Upper Grades – Request Card Template',
+        titleId: 'Templat Kartu Permintaan – Kelas Atas',
+        content: `╔══════════════════════════════════════════════╗
+║           MY REQUEST CARD                    ║
+╠══════════════════════════════════════════════╣
+║                                              ║
+║ Write ONE polite request:                    ║
+║                                              ║
+║ "Would you mind _________________________?"  ║
+║                                              ║
+║ Examples:                                    ║
+║ • opening the window?                        ║
+║ • helping me carry this                      ║
+║ • passing the paper?                         ║
+║ • explaining again?                          ║
+║                                              ║
+║  Decorate with a small drawing!              ║
+║                                              ║
+╚══════════════════════════════════════════════╝`
+      },
+    ],
     roleplay: {
       lower: [
         {

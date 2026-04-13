@@ -189,6 +189,7 @@ export interface WeekData {
   }[];
   templates?: {
     title: string;
+    titleId?: string;
     content: string;
   }[];
   lessonTasks?: {

@@ -87,24 +87,26 @@ export const Layout: React.FC<LayoutProps> = ({
 
       {/* Week Selector, Grade Toggle & Stopwatch */}
       <div className="fixed top-3 left-4 right-4 flex flex-col md:flex-row justify-between items-center gap-3 z-50 pointer-events-none">
-        <div className="flex flex-col md:flex-row items-center gap-3 pointer-events-auto">
-          {/* Smaller, Adjusted Week Selector */}
-          <div className={`bg-white/90 backdrop-blur-sm border-2 ${theme.border} rounded-2xl p-1 shadow-lg flex items-center gap-1 overflow-x-auto max-w-[95vw] md:max-w-none no-scrollbar`}>
-            {weeks.map((week) => (
-              <button
-                key={week.id}
-                onClick={() => onWeekSelect(week.id)}
-                className={`
-                  flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-fredoka font-bold text-xs transition-all whitespace-nowrap active:scale-95
-                  ${selectedWeek.id === week.id 
-                    ? `bg-gradient-to-br ${theme.gradient} text-white shadow-md` 
-                    : 'bg-transparent text-t2 hover:bg-bg-darker'}
-                `}
-              >
-                <span className="text-base">{week.badge.split(' ')[2]}</span>
-                <span className="hidden sm:inline">W{week.badge.split(' ')[1]}</span>
-              </button>
-            ))}
+        <div className="flex flex-col md:flex-row items-center gap-3 pointer-events-auto w-full md:w-auto">
+          {/* Smaller, Adjusted Week Selector with Scroller */}
+          <div className="relative max-w-full md:max-w-none">
+            <div className={`bg-white/90 backdrop-blur-sm border-2 ${theme.border} rounded-2xl p-1 shadow-lg flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth`}>
+              {weeks.map((week) => (
+                <button
+                  key={week.id}
+                  onClick={() => onWeekSelect(week.id)}
+                  className={`
+                    flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-fredoka font-bold text-xs transition-all whitespace-nowrap active:scale-95
+                    ${selectedWeek.id === week.id 
+                      ? `bg-gradient-to-br ${theme.gradient} text-white shadow-md` 
+                      : 'bg-transparent text-t2 hover:bg-bg-darker'}
+                  `}
+                >
+                  <span className="text-base">{week.badge.split(' ')[2]}</span>
+                  <span className="hidden sm:inline">W{week.badge.split(' ')[1]}</span>
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Smaller Grade Toggle */}
@@ -172,23 +174,25 @@ export const Layout: React.FC<LayoutProps> = ({
           <div className={`absolute bottom-0 right-0 w-40 h-40 ${theme.accent} rounded-full -mr-20 -mb-20 animate-pulse delay-700 opacity-50`} />
         </header>
 
-        {/* Navigation */}
-        <nav className="flex flex-wrap gap-4 mb-12 justify-center">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`
-                flex items-center gap-2 px-6 py-4 rounded-2xl font-fredoka font-bold text-lg transition-all duration-300
-                ${activeTab === tab.id 
-                  ? `bg-white border-4 ${theme.border} ${theme.text} shadow-xl scale-110 -translate-y-1` 
-                  : `bg-white border-2 border-bg-darker text-t2 hover:${theme.bg} hover:${theme.border} hover:${theme.text}`}
-              `}
-            >
-              {tab.icon}
-              {tab.label}
-            </button>
-          ))}
+        {/* Navigation with Scroller */}
+        <nav className="relative mb-12">
+          <div className="flex overflow-x-auto gap-4 no-scrollbar pb-2 px-4 -mx-4 md:mx-0 md:px-0 md:justify-center md:flex-wrap scroll-smooth">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`
+                  flex items-center gap-2 px-6 py-4 rounded-2xl font-fredoka font-bold text-lg transition-all duration-300 whitespace-nowrap
+                  ${activeTab === tab.id 
+                    ? `bg-white border-4 ${theme.border} ${theme.text} shadow-xl scale-105 md:scale-110 -translate-y-1` 
+                    : `bg-white border-2 border-bg-darker text-t2 hover:${theme.bg} hover:${theme.border} hover:${theme.text}`}
+                `}
+              >
+                {tab.icon}
+                {tab.label}
+              </button>
+            ))}
+          </div>
         </nav>
 
         {/* Main Content */}

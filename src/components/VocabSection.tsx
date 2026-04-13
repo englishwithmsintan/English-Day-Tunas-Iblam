@@ -38,8 +38,11 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
   const handleSpeak = async (text: string, style: 'cheerful' | 'clear' = 'cheerful') => {
     if (isSpeaking) return;
     setIsSpeaking(true);
-    await speak(text, style);
-    setIsSpeaking(false);
+    try {
+      await speak(text, style);
+    } finally {
+      setIsSpeaking(false);
+    }
   };
 
   const initGame = () => {
