@@ -12,6 +12,8 @@ import { PoliteQuiz } from './practice/PoliteQuiz';
 import { PolitenessMeter } from './practice/PolitenessMeter';
 import { RoleplayMission } from './practice/RoleplayMission';
 import { LessonTasks } from './practice/LessonTasks';
+import { TreasureGame } from './practice/TreasureGame';
+import { SentenceFrames } from './practice/SentenceFrames';
 
 interface PracticeSectionProps {
   gradeLevel: GradeLevel;
@@ -30,10 +32,32 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({ gradeLevel, we
       <LessonTasks grade={gradeLevel} weekData={weekData} theme={theme} language={language} />
 
       <div className="space-y-16">
-        <SentenceScramble grade={gradeLevel} weekData={weekData} theme={theme} language={language} />
-        <ChatSimulator grade={gradeLevel} weekData={weekData} theme={theme} language={language} />
-        <PoliteQuiz weekData={weekData} theme={theme} language={language} />
-        <PolitenessMeter grade={gradeLevel} weekData={weekData} theme={theme} language={language} />
+        {weekData.id === 'hunting-high-low' ? (
+          <TreasureGame gradeLevel={gradeLevel} language={language} theme={theme} />
+        ) : (
+          <>
+            {weekData.sentenceFrames && (gradeLevel === 'lower' ? weekData.sentenceFrames.lower.length > 0 : weekData.sentenceFrames.upper.length > 0) && (
+              <SentenceFrames 
+                grade={gradeLevel} 
+                frames={gradeLevel === 'lower' ? weekData.sentenceFrames.lower : weekData.sentenceFrames.upper} 
+                theme={theme} 
+                language={language} 
+              />
+            )}
+            {weekData.scramble && (gradeLevel === 'lower' ? weekData.scramble.lower.length > 0 : weekData.scramble.upper.length > 0) && (
+              <SentenceScramble grade={gradeLevel} weekData={weekData} theme={theme} language={language} />
+            )}
+            {weekData.chat && (gradeLevel === 'lower' ? weekData.chat.lower.length > 0 : weekData.chat.upper.length > 0) && (
+              <ChatSimulator grade={gradeLevel} weekData={weekData} theme={theme} language={language} />
+            )}
+            {weekData.quiz && weekData.quiz.length > 0 && (
+              <PoliteQuiz weekData={weekData} theme={theme} language={language} />
+            )}
+            {weekData.meter && (gradeLevel === 'lower' ? weekData.meter.lower.length > 0 : weekData.meter.upper.length > 0) && (
+              <PolitenessMeter grade={gradeLevel} weekData={weekData} theme={theme} language={language} />
+            )}
+          </>
+        )}
         {weekData.roleplay && (
           <RoleplayMission 
             grade={gradeLevel} 

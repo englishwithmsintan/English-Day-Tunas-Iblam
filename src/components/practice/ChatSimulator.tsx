@@ -5,9 +5,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { MessageCircle, Send, Star, RefreshCw } from 'lucide-react';
+import { MessageCircle, Send, Star, RefreshCw, Volume2 } from 'lucide-react';
 import { GradeLevel, WeekData, Language } from '../../types';
-import { speak } from '../../services/ttsService';
+import { speakQueued, prewarmAudio } from '../../services/ttsService';
 
 interface ChatSimulatorProps {
   grade: GradeLevel;
@@ -46,6 +46,10 @@ export const ChatSimulator: React.FC<ChatSimulatorProps> = ({ grade, weekData, t
 
   const startNewChat = () => {
     if (data.length === 0) return;
+    
+    // Pre-warm audio on first interaction to fix latency
+    prewarmAudio();
+
     const idx = Math.floor(Math.random() * data.length);
     setCurrentSituationIndex(idx);
     setCurrentTurnIndex(0);
@@ -60,7 +64,8 @@ export const ChatSimulator: React.FC<ChatSimulatorProps> = ({ grade, weekData, t
     if (isSpeaking) return;
     setIsSpeaking(true);
     try {
-      await speak(text, style);
+      prewarmAudio();
+      await speakQueued(text, style);
     } finally {
       setIsSpeaking(false);
     }
@@ -98,9 +103,9 @@ export const ChatSimulator: React.FC<ChatSimulatorProps> = ({ grade, weekData, t
         const percentage = Math.round((totalPoints + choice.points) / maxPoints * 100);
         
         let endMsg = "";
-        if (percentage >= 80) endMsg = language === 'en' ? "🏆 Amazing! You are a politeness expert! ⭐" : "🏆 Luar biasa! Kamu ahli kesopanan! ⭐";
-        else if (percentage >= 50) endMsg = language === 'en' ? "👏 Good job! You were very polite! 😊" : "👏 Kerja bagus! Kamu sangat sopan! 😊";
-        else endMsg = language === 'en' ? "💪 Keep practising! You can be even more polite! 💭" : "💪 Teruslah berlatih! Kamu bisa lebih sopan lagi! 💭";
+        if (percentage >= 80) endMsg = language === 'en' ? "🏆 Amazing! You are an expert! ⭐" : "🏆 Luar biasa! Kamu sang ahli! ⭐";
+        else if (percentage >= 50) endMsg = language === 'en' ? "👏 Good job! You are awesome! 😊" : "👏 Kerja bagus! Kamu sangat mengagumkan! 😊";
+        else endMsg = language === 'en' ? "💪 Keep practising! You can be even better! 💭" : "💪 Teruslah berlatih! Kamu bisa lebih baik lagi! 💭";
 
         setMessages(prev => [...prev, { text: endMsg, side: 'left', type: 'hint' }]);
         setIsGameOver(true);
@@ -114,11 +119,11 @@ export const ChatSimulator: React.FC<ChatSimulatorProps> = ({ grade, weekData, t
   return (
     <div className={`card border-4 ${theme.border}`}>
       <h2 className={`text-3xl md:text-4xl mb-6 flex items-center gap-4 ${theme.text}`}>
-        💬 {language === 'en' ? 'Task 2: What Do You Say?' : 'Tugas 2: Apa yang Kamu Katakan?'}
+        💬 {language === 'en' ? 'What Do You Say?' : 'Apa yang Kamu Katakan?'}
       </h2>
       <p className="text-xl text-t2 mb-8">
         {language === 'en' 
-          ? 'Your classmate is talking to you! Tap the best reply. Green = polite! 🎤' 
+          ? 'Your classmate is talking to you! Tap the best reply. Green = Correct! 🎤' 
           : 'Teman sekelasmu sedang berbicara padamu! Ketuk jawaban terbaik. Hijau = sopan! 🎤'}
       </p>
 
@@ -147,13 +152,36 @@ export const ChatSimulator: React.FC<ChatSimulatorProps> = ({ grade, weekData, t
                     {msg.text}
                   </div>
                 ) : (
-                  <div className={`
-                    max-w-[85%] p-4 px-6 rounded-[24px] font-nunito text-lg leading-relaxed shadow-sm
-                    ${msg.side === 'left' 
-                      ? 'bg-white border-2 border-bg-darker rounded-tl-none text-t1' 
-                      : `bg-gradient-to-br ${theme.gradient} text-white rounded-tr-none`}
-                  `}>
-                    {msg.text}
+                  <div className="relative group max-w-[85%]">
+                    <div className={`
+                      p-4 px-6 rounded-[24px] font-nunito text-lg leading-relaxed shadow-sm
+                      ${msg.side === 'left' 
+                        ? 'bg-white border-2 border-bg-darker rounded-tl-none text-t1' 
+                        : `bg-gradient-to-br ${theme.gradient} text-white rounded-tr-none`}
+                    `}>
+                      {msg.text}
+                      {msg.side === 'left' && (
+                        <button
+                          onClick={() => handleSpeak(msg.text.replace(/^[^:]+:\s*/, '').replace(/["*]/g, ''), 'cheerful')}
+                          className="ml-2 inline-flex items-center text-t3 hover:text-black transition-colors"
+                        >
+                          <Volume2 size={16} />
+                        </button>
+                      )}
+                    </div>
+                    {msg.side === 'right' && (
+                      <button
+                        onClick={() => handleSpeak(msg.text.replace(/^[^:]+:\s*/, '').replace(/["*]/g, ''), 'cheerful')}
+                        className={`
+                          absolute -top-2 -left-2 
+                          p-2 bg-white rounded-full border-2 border-bg-darker shadow-md 
+                          opacity-0 group-hover:opacity-100 transition-all z-10
+                          hover:scale-110 active:scale-95
+                        `}
+                      >
+                        <Volume2 size={14} className={theme.text} />
+                      </button>
+                    )}
                   </div>
                 )}
               </motion.div>
@@ -165,15 +193,28 @@ export const ChatSimulator: React.FC<ChatSimulatorProps> = ({ grade, weekData, t
           {currentTurn && !isGameOver && (
             <div className="grid gap-3">
               {currentTurn.choices.map((choice, i) => (
-                <motion.button
+                <div 
                   key={i}
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => pickChoice(i)}
-                  className={`w-full text-left bg-white border-2 border-bg-darker p-5 rounded-2xl hover:${theme.border} hover:${theme.bg} transition-all text-lg font-nunito font-bold shadow-sm active:scale-95`}
+                  className="relative group"
                 >
-                  {language === 'en' ? choice.text : choice.textId || choice.text}
-                </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => pickChoice(i)}
+                    className={`w-full text-left bg-white border-2 border-bg-darker p-5 pr-14 rounded-2xl hover:${theme.border} hover:${theme.bg} transition-all text-lg font-nunito font-bold shadow-sm active:scale-95`}
+                  >
+                    {language === 'en' ? choice.text : choice.textId || choice.text}
+                  </motion.button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSpeak(choice.text, 'cheerful');
+                    }}
+                    className={`absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-xl opacity-40 hover:opacity-100 hover:${theme.bg} transition-all ${theme.text}`}
+                  >
+                    <Volume2 className="w-5 h-5" />
+                  </button>
+                </div>
               ))}
             </div>
           )}

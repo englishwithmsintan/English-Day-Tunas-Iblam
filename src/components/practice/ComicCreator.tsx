@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, Send, RefreshCcw, Trophy, Sparkles, User } from 'lucide-react';
+import { BookOpen, Send, RefreshCcw, Trophy, Sparkles, User, Volume2 } from 'lucide-react';
 import { ComicSituation, ComicScene } from '../../types';
+import { speak, prewarmAudio } from '../../services/ttsService';
 
 interface ComicCreatorProps {
   comicSituations: ComicSituation[];
@@ -13,11 +14,24 @@ export const ComicCreator: React.FC<ComicCreatorProps> = ({ comicSituations, the
   const [currentSceneIndex, setCurrentSceneIndex] = useState(0);
   const [completedScenes, setCompletedScenes] = useState<ComicScene[]>([]);
   const [isFinished, setIsFinished] = useState(false);
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   const situation = comicSituations[currentSituationIndex];
   const scene = situation.scenes[currentSceneIndex];
 
+  const handleSpeak = async (text: string) => {
+    if (isSpeaking) return;
+    setIsSpeaking(true);
+    try {
+      prewarmAudio();
+      await speak(text, 'cheerful');
+    } finally {
+      setIsSpeaking(false);
+    }
+  };
+
   const handleOptionSelect = (option: { text: string, expression: string }) => {
+    prewarmAudio();
     const newScene: ComicScene = {
       character: 'Student',
       expression: option.expression,
@@ -35,6 +49,7 @@ export const ComicCreator: React.FC<ComicCreatorProps> = ({ comicSituations, the
   };
 
   const reset = () => {
+    prewarmAudio();
     setCurrentSceneIndex(0);
     setCompletedScenes([]);
     setIsFinished(false);
@@ -72,11 +87,17 @@ export const ComicCreator: React.FC<ComicCreatorProps> = ({ comicSituations, the
             className="space-y-8"
           >
             {/* Scene Prompt */}
-            <div className={`${theme.bg} p-6 rounded-[32px] border-2 border-white shadow-inner relative`}>
+            <div className={`${theme.bg} p-6 rounded-[32px] border-2 border-white shadow-inner relative group`}>
               <div className="absolute -top-3 left-8 bg-white px-4 py-1 rounded-full border-2 border-bg-darker text-xs font-bold text-t3 uppercase">The Situation</div>
-              <p className="text-xl font-fredoka text-t2 leading-relaxed italic">
+              <p className="text-xl font-fredoka text-t2 leading-relaxed italic pr-10">
                 "{scene.prompt}"
               </p>
+              <button
+                onClick={() => handleSpeak(scene.prompt)}
+                className="absolute top-2 right-2 p-2 rounded-xl opacity-40 hover:opacity-100 transition-all bg-white shadow-sm"
+              >
+                <Volume2 size={20} className={theme.text} />
+              </button>
             </div>
 
             {/* Character Preview */}
@@ -94,23 +115,28 @@ export const ComicCreator: React.FC<ComicCreatorProps> = ({ comicSituations, the
             {/* Options */}
             <div className="grid grid-cols-1 gap-4">
               {scene.options.map((option, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleOptionSelect(option)}
-                  className={`
-                    group text-left p-6 rounded-[24px] border-4 border-bg-darker bg-white hover:${theme.border} transition-all active:scale-[0.98] shadow-sm hover:shadow-md relative overflow-hidden
-                  `}
-                >
-                  <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${theme.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
-                  <div className="flex items-center justify-between gap-4">
+                <div key={idx} className="relative group">
+                  <button
+                    onClick={() => handleOptionSelect(option)}
+                    className={`
+                      w-full text-left p-6 pr-14 rounded-[24px] border-4 border-bg-darker bg-white hover:${theme.border} transition-all active:scale-[0.98] shadow-sm hover:shadow-md relative overflow-hidden
+                    `}
+                  >
+                    <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${theme.gradient} opacity-0 group-hover:opacity-100 transition-opacity`} />
                     <span className="text-lg font-fredoka font-bold text-t2 group-hover:text-t1 transition-colors">
                       {option.text}
                     </span>
-                    <div className={`p-2 rounded-lg bg-bg-darker group-hover:${theme.bg} transition-colors`}>
-                      <Send className={`w-5 h-5 ${theme.text}`} />
-                    </div>
-                  </div>
-                </button>
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSpeak(option.text);
+                    }}
+                    className={`absolute right-4 top-1/2 -translate-y-1/2 p-2 rounded-xl opacity-40 hover:opacity-100 hover:${theme.bg} transition-all ${theme.text}`}
+                  >
+                    <Volume2 size={24} />
+                  </button>
+                </div>
               ))}
             </div>
           </motion.div>
@@ -136,7 +162,7 @@ export const ComicCreator: React.FC<ComicCreatorProps> = ({ comicSituations, the
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.2 }}
-                  className="bg-white border-4 border-bg-darker rounded-[32px] p-6 shadow-lg relative"
+                  className="bg-white border-4 border-bg-darker rounded-[32px] p-6 shadow-lg relative group"
                 >
                   <div className="absolute -top-3 left-6 bg-t1 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase">Panel {idx + 1}</div>
                   <div className="flex flex-col items-center gap-4">
@@ -146,6 +172,12 @@ export const ComicCreator: React.FC<ComicCreatorProps> = ({ comicSituations, the
                     <div className="bg-bg-darker p-4 rounded-2xl w-full relative">
                       <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-bg-darker rotate-45" />
                       <p className="text-center font-fredoka font-bold text-t1 italic">"{s.dialogue}"</p>
+                      <button
+                        onClick={() => handleSpeak(s.dialogue)}
+                        className="absolute -right-2 -top-2 p-1.5 bg-white rounded-full border border-bg-darker shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <Volume2 size={12} className={theme.text} />
+                      </button>
                     </div>
                     <div className="text-xs font-bold text-t3 uppercase tracking-widest flex items-center gap-1">
                       <Sparkles className="w-3 h-3" /> Expression: {s.expression}

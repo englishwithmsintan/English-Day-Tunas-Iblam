@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Volume2, Music, Trophy, RefreshCcw } from 'lucide-react';
 import { GradeLevel, WeekData, VocabularyItem, Language } from '../types';
-import { speak } from '../services/ttsService';
+import { speakQueued, prewarmAudio } from '../services/ttsService';
 
 interface VocabSectionProps {
   gradeLevel: GradeLevel;
@@ -35,17 +35,20 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
 
   const vocab = gradeLevel === 'lower' ? weekData.vocab.lower : weekData.vocab.upper;
 
-  const handleSpeak = async (text: string, style: 'cheerful' | 'clear' = 'cheerful') => {
+  const handleSpeak = async (text: string, style: 'cheerful' | 'clear' | 'playful' | 'gentle' = 'playful') => {
     if (isSpeaking) return;
     setIsSpeaking(true);
     try {
-      await speak(text, style);
+      // Ensure audio context is ready
+      prewarmAudio();
+      await speakQueued(text, style);
     } finally {
       setIsSpeaking(false);
     }
   };
 
   const initGame = () => {
+    prewarmAudio();
     const cards: GameCard[] = [];
     vocab.forEach((item) => {
       // Add word card
@@ -79,6 +82,8 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
 
   const handleCardClick = (index: number) => {
     if (selectedCards.length === 2 || gameCards[index].isFlipped || gameCards[index].isMatched) return;
+    
+    prewarmAudio();
 
     const newCards = [...gameCards];
     newCards[index].isFlipped = true;
@@ -90,6 +95,9 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
     if (newSelected.length === 2) {
       const [first, second] = newSelected;
       if (gameCards[first].pairId === gameCards[second].pairId) {
+        const feedbackPhrases = ["Great match!", "You found it!", "Perfect pairing!", "Awesome choice!"];
+        const randomFeedback = feedbackPhrases[Math.floor(Math.random() * feedbackPhrases.length)];
+        
         setTimeout(() => {
           setGameCards(prev => {
             const matched = [...prev];
@@ -99,7 +107,7 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
           });
           setSelectedCards([]);
           setMatches(m => m + 1);
-          handleSpeak("Great match!", "cheerful");
+          handleSpeak(randomFeedback, "cheerful");
         }, 500);
       } else {
         setTimeout(() => {
@@ -148,7 +156,10 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
             </p>
           </div>
           <button
-            onClick={() => setShowGame(!showGame)}
+            onClick={() => {
+              prewarmAudio();
+              setShowGame(!showGame);
+            }}
             className={`px-8 py-4 rounded-2xl font-fredoka font-bold text-lg transition-all flex items-center gap-2 shadow-lg active:scale-95 ${
               showGame 
                 ? 'bg-pink-custom text-white shadow-pink-custom/30' 
@@ -167,9 +178,10 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
               <div
                 key={i}
                 onClick={() => {
+                  prewarmAudio();
                   setFlippedIndex(flippedIndex === i ? null : i);
                   if (flippedIndex !== i) {
-                    handleSpeak(item.word, 'clear');
+                    handleSpeak(item.word, 'cheerful');
                   }
                 }}
                 className="relative h-72 cursor-pointer perspective-1000"
@@ -203,20 +215,39 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
                   </div>
 
                   {/* Back */}
-                  <div className={`absolute inset-0 backface-hidden bg-gradient-to-br ${theme.gradient} rounded-3xl p-6 flex flex-col items-center justify-center text-center rotate-y-180 shadow-inner`}>
-                    <div className="text-2xl font-bold text-white mb-2 drop-shadow-sm">🇮🇩 {language === 'en' ? item.meaning : item.meaningId || item.meaning}</div>
-                    <div className="w-full h-1 bg-white/30 rounded-full my-4" />
-                    <div className="text-base font-medium text-white leading-tight mb-6 px-2">
+                  <div className={`absolute inset-0 backface-hidden bg-gradient-to-br ${theme.gradient} rounded-3xl p-6 flex flex-col items-center justify-center text-center rotate-y-180 shadow-inner overflow-hidden`}>
+                    <div className="text-2xl font-bold text-white mb-1 drop-shadow-sm">🇮🇩 {language === 'en' ? item.meaning : item.meaningId || item.meaning}</div>
+                    
+                    {item.gesture && (
+                      <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-3 my-2 border border-white/30 w-full group/gesture relative">
+                        <p className="text-xs font-black text-white/80 uppercase tracking-tighter mb-1">Gesture:</p>
+                        <p className="text-sm font-fredoka font-bold text-white leading-tight">
+                          {language === 'en' ? item.gesture : item.gestureId || item.gesture}
+                        </p>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSpeak(language === 'en' ? item.gesture : item.gestureId || item.gesture, 'playful');
+                          }}
+                          className="absolute right-1 top-1 p-1 opacity-0 group-hover/gesture:opacity-100 transition-opacity"
+                        >
+                          <Volume2 className="w-3 h-3 text-white" />
+                        </button>
+                      </div>
+                    )}
+
+                    <div className="w-full h-0.5 bg-white/30 rounded-full my-2" />
+                    <div className="text-sm font-medium text-white leading-tight mb-4 px-2">
                       "{renderSentence(language === 'en' ? item.example : item.exampleId || item.example, item.word)}"
                     </div>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        handleSpeak(item.example, 'cheerful');
+                        handleSpeak(item.example, 'playful');
                       }}
-                      className={`bg-white ${theme.text} hover:bg-yellow-custom hover:text-white p-4 rounded-2xl transition-all shadow-lg active:scale-95`}
+                      className={`bg-white ${theme.text} hover:bg-yellow-custom hover:text-white p-3 rounded-xl transition-all shadow-lg active:scale-95`}
                     >
-                      <Volume2 className="w-8 h-8" />
+                      <Volume2 className="w-6 h-6" />
                     </button>
                   </div>
                 </motion.div>
@@ -331,7 +362,7 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
                     <span className="text-2xl">{item.emoji}</span>
                     <p className={`${theme.text} font-fredoka font-bold text-sm uppercase tracking-wider`}>{item.word}</p>
                     <button
-                      onClick={() => handleSpeak(item.word, 'clear')}
+                      onClick={() => handleSpeak(item.word, 'playful')}
                       className={`p-1.5 hover:${theme.bg} rounded-full transition-colors shadow-sm`}
                     >
                       <Volume2 className={`w-4 h-4 ${theme.text}`} />
@@ -345,7 +376,7 @@ export const VocabSection: React.FC<VocabSectionProps> = ({ gradeLevel, weekData
                   </div>
                 </div>
                 <button
-                  onClick={() => handleSpeak(item.example, 'cheerful')}
+                  onClick={() => handleSpeak(item.example, 'playful')}
                   disabled={isSpeaking}
                   className={`ml-4 bg-white hover:${theme.bg} group-hover:shadow-lg p-5 rounded-2xl transition-all disabled:opacity-50 border-2 border-transparent hover:${theme.border}`}
                 >

@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, RotateCcw, Volume2, Star } from 'lucide-react';
 import { GradeLevel, WeekData, Language } from '../../types';
-import { speak } from '../../services/ttsService';
+import { speakQueued, prewarmAudio } from '../../services/ttsService';
 
 interface SentenceScrambleProps {
   grade: GradeLevel;
@@ -68,11 +68,12 @@ export const SentenceScramble: React.FC<SentenceScrambleProps> = ({ grade, weekD
     }
   };
 
-  const handleSpeak = async (text: string, style: 'cheerful' | 'clear' = 'cheerful') => {
+  const handleSpeak = async (text: string, style: 'cheerful' | 'clear' | 'playful' | 'gentle' = 'cheerful') => {
     if (isSpeaking) return;
     setIsSpeaking(true);
     try {
-      await speak(text, style);
+      prewarmAudio();
+      await speakQueued(text, style);
     } finally {
       setIsSpeaking(false);
     }
@@ -88,7 +89,7 @@ export const SentenceScramble: React.FC<SentenceScrambleProps> = ({ grade, weekD
   return (
     <div className={`card border-4 ${theme.border}`}>
       <h2 className={`text-3xl md:text-4xl mb-6 flex items-center gap-4 ${theme.text}`}>
-        🧩 {language === 'en' ? 'Task 1: Build the Sentence!' : 'Tugas 1: Susun Kalimatnya!'}
+        🧩 {language === 'en' ? 'Build the Sentence!' : 'Susun Kalimatnya!'}
       </h2>
       <p className="text-xl text-t2 mb-8">
         {language === 'en' 
@@ -97,17 +98,26 @@ export const SentenceScramble: React.FC<SentenceScrambleProps> = ({ grade, weekD
       </p>
 
       <div className={`bg-white p-8 rounded-[40px] border-4 ${theme.border} shadow-inner`}>
-        <div className="flex justify-between items-center mb-8">
-          <span className="font-fredoka text-2xl text-yellow-custom font-bold">
-            Q {(currentIndex % data.length) + 1}/{data.length}
-          </span>
-          <span className={`font-fredoka text-2xl ${theme.text} flex items-center gap-2 font-bold`}>
-            <Star className={`fill-current`} /> {score}
-          </span>
-        </div>
-
-        <div className={`${theme.bg} rounded-[32px] p-8 mb-8 text-center font-fredoka text-2xl text-t1 border-2 border-white shadow-sm`}>
-          {language === 'en' ? currentItem.situation : currentItem.situationId || currentItem.situation}
+        <div className="flex justify-between items-start gap-4 mb-8">
+          <div className="flex-1">
+            <div className={`${theme.bg} rounded-[32px] p-8 text-center font-fredoka text-2xl text-t1 border-2 border-white shadow-sm relative group`}>
+              {language === 'en' ? currentItem.situation : currentItem.situationId || currentItem.situation}
+              <button
+                onClick={() => handleSpeak(language === 'en' ? currentItem.situation : currentItem.situationId || currentItem.situation)}
+                className="absolute top-2 right-2 p-2 rounded-xl opacity-0 group-hover:opacity-60 hover:!opacity-100 transition-all bg-white/50"
+              >
+                <Volume2 size={20} className={theme.text} />
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col items-end gap-2">
+            <span className="font-fredoka text-2xl text-yellow-custom font-bold">
+              Q {(currentIndex % data.length) + 1}/{data.length}
+            </span>
+            <span className={`font-fredoka text-2xl ${theme.text} flex items-center gap-2 font-bold`}>
+              <Star className={`fill-current`} /> {score}
+            </span>
+          </div>
         </div>
 
         <div className="space-y-8">

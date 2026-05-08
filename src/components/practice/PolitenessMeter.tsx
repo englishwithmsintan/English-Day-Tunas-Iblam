@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { RefreshCw, Volume2, Lightbulb } from 'lucide-react';
 import { GradeLevel, WeekData, Language } from '../../types';
-import { speak } from '../../services/ttsService';
+import { speakQueued, prewarmAudio } from '../../services/ttsService';
 
 interface PolitenessMeterProps {
   grade: GradeLevel;
@@ -30,11 +30,15 @@ export const PolitenessMeter: React.FC<PolitenessMeterProps> = ({ grade, weekDat
     setShowResult(false);
   }, [grade, currentIndex, weekData.id]);
 
-  const handleSpeak = async (text: string, style: 'cheerful' | 'clear' = 'cheerful') => {
+  const handleSpeak = async (text: string, style: 'cheerful' | 'clear' | 'playful' | 'gentle' = 'cheerful') => {
     if (isSpeaking) return;
     setIsSpeaking(true);
-    await speak(text, style);
-    setIsSpeaking(false);
+    try {
+      prewarmAudio();
+      await speakQueued(text, style);
+    } finally {
+      setIsSpeaking(false);
+    }
   };
 
   const nextItem = () => {
@@ -68,7 +72,7 @@ export const PolitenessMeter: React.FC<PolitenessMeterProps> = ({ grade, weekDat
   return (
     <div className={`card border-4 ${theme.border}`}>
       <h2 className={`text-3xl md:text-4xl mb-6 flex items-center gap-4 ${theme.text}`}>
-        😊 {language === 'en' ? 'Task 4: Politeness Meter!' : 'Tugas 4: Meteran Kesopanan!'}
+        😊 {language === 'en' ? 'Politeness Meter!' : 'Meteran Kesopanan!'}
       </h2>
       <p className="text-xl text-t2 mb-8">
         {language === 'en' ? 'Hear a sentence — then vote together! How polite is it? 🗳️' : 'Dengarkan sebuah kalimat — lalu pilih bersama! Seberapa sopankah itu? 🗳️'}

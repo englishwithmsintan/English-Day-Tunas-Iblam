@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, Volume2, CheckCircle2, Trophy, MessageSquareQuote } from 'lucide-react';
 import { RoleplayScenario, GradeLevel, Language } from '../../types';
-import { speak } from '../../services/ttsService';
+import { speakQueued, prewarmAudio } from '../../services/ttsService';
 
 interface RoleplayMissionProps {
   grade: GradeLevel;
@@ -23,10 +23,11 @@ export const RoleplayMission: React.FC<RoleplayMissionProps> = ({ grade, scenari
   
   const currentScenario = scenarios[currentIndex % scenarios.length];
 
-  const handleSpeak = async (text: string, style: 'cheerful' | 'clear' = 'cheerful') => {
+  const handleSpeak = async (text: string, style: 'cheerful' | 'clear' | 'playful' | 'gentle' = 'cheerful') => {
     if (isSpeaking) return;
     setIsSpeaking(true);
-    await speak(text, style);
+    prewarmAudio();
+    await speakQueued(text, style);
     setIsSpeaking(false);
   };
 
@@ -52,7 +53,7 @@ export const RoleplayMission: React.FC<RoleplayMissionProps> = ({ grade, scenari
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-8">
           <h2 className={`text-3xl md:text-4xl font-fredoka flex items-center gap-4 ${theme.text}`}>
-            🦸 {language === 'en' ? 'Task 5: Roleplay Mission!' : 'Tugas 5: Misi Roleplay!'}
+            🦸 {language === 'en' ? 'Roleplay Mission!' : 'Misi Roleplay!'}
           </h2>
           <div className={`bg-white border-4 ${theme.border} p-3 rounded-2xl shadow-lg rotate-3`}>
             <Trophy className={`w-8 h-8 ${theme.text}`} />

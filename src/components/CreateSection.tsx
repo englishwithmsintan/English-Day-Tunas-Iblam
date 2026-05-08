@@ -189,7 +189,17 @@ export const CreateSection: React.FC<CreateSectionProps> = ({ gradeLevel, weekDa
                     <Download size={24} />
                   </button>
                 </div>
-                <div className="bg-bg-light rounded-[32px] p-8 font-mono text-sm text-t2 whitespace-pre-wrap border-2 border-dashed border-bg-darker shadow-inner leading-relaxed group-hover:bg-white transition-colors">
+                <div className="bg-bg-light rounded-[32px] p-8 font-mono text-sm text-t2 whitespace-pre-wrap border-2 border-dashed border-bg-darker shadow-inner leading-relaxed group-hover:bg-white transition-colors text-left uppercase">
+                  {template.image && (
+                    <div className="mb-6 rounded-2xl overflow-hidden border-2 border-bg-darker bg-white p-2">
+                       <img 
+                        src={template.image} 
+                        alt={template.title} 
+                        className="w-full h-auto object-contain rounded-xl shadow-sm"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                  )}
                   {template.content}
                 </div>
               </motion.div>

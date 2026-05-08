@@ -6,7 +6,7 @@
 export type GradeLevel = 'lower' | 'upper';
 export type Language = 'en' | 'id';
 
-export type WeekId = 'break-the-ice' | 'early-bird' | 'penny-thoughts' | 'getting-to-know' | 'whats-the-scoop' | 'lend-a-hand' | 'kindred-spirits';
+export type WeekId = 'break-the-ice' | 'early-bird' | 'penny-thoughts' | 'getting-to-know' | 'whats-the-scoop' | 'lend-a-hand' | 'hunting-high-low' | 'pat-on-back';
 
 export interface VocabularyItem {
   word: string;
@@ -16,6 +16,8 @@ export interface VocabularyItem {
   exampleId?: string;
   emoji: string;
   image?: string;
+  gesture?: string;
+  gestureId?: string;
 }
 
 export interface ScrambleItem {
@@ -125,7 +127,7 @@ export interface WeekData {
     upper: ChatSituation[];
   };
   quiz: QuizItem[];
-  meter: {
+  meter?: {
     lower: MeterItem[];
     upper: MeterItem[];
   };
@@ -145,6 +147,12 @@ export interface WeekData {
       descriptionId?: string;
       activity: string;
       activityId?: string;
+    };
+    assessment?: {
+      lower: string[];
+      lowerId?: string[];
+      upper: string[];
+      upperId?: string[];
     };
   };
   materials?: string[];
@@ -191,6 +199,7 @@ export interface WeekData {
     title: string;
     titleId?: string;
     content: string;
+    image?: string;
   }[];
   lessonTasks?: {
     title: string;
@@ -208,5 +217,9 @@ export interface WeekData {
   roleplay?: {
     lower: RoleplayScenario[];
     upper: RoleplayScenario[];
+  };
+  sentenceFrames?: {
+    lower: { en: string; id: string }[];
+    upper: { en: string; id: string }[];
   };
 }

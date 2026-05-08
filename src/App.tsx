@@ -13,6 +13,7 @@ import { CreateSection } from './components/CreateSection';
 import { AnimatePresence, motion } from 'motion/react';
 import { GradeLevel, WeekId, Language } from './types';
 import { WEEKS } from './constants';
+import { prewarmAudio, preloadVoices } from './services/ttsService';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('connect');
@@ -24,10 +25,28 @@ export default function App() {
   const selectedWeek = WEEKS.find(w => w.id === selectedWeekId) || WEEKS[0];
 
   useEffect(() => {
+    // TTS Optimizations
+    preloadVoices();
+    
+    const handleFirstInteraction = () => {
+      prewarmAudio();
+      // Remove after first use
+      window.removeEventListener('click', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+    };
+
+    window.addEventListener('click', handleFirstInteraction);
+    window.addEventListener('touchstart', handleFirstInteraction);
+
     const timer = setInterval(() => {
       setTimeElapsed((prev) => prev + 1);
     }, 1000);
-    return () => clearInterval(timer);
+
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener('click', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+    };
   }, []);
 
   const themeColors: Record<string, { border: string, text: string, bg: string, accent: string, gradient: string }> = {
@@ -37,6 +56,8 @@ export default function App() {
     'getting-to-know': { border: 'border-purple-400', text: 'text-purple-600', bg: 'bg-purple-50', accent: 'bg-purple-100', gradient: 'from-purple-400 to-purple-600' },
     'whats-the-scoop': { border: 'border-red-400', text: 'text-red-600', bg: 'bg-red-50', accent: 'bg-red-100', gradient: 'from-red-400 to-red-600' },
     'lend-a-hand': { border: 'border-teal-400', text: 'text-teal-600', bg: 'bg-teal-50', accent: 'bg-teal-100', gradient: 'from-teal-400 to-teal-600' },
+    'hunting-high-low': { border: 'border-green-400', text: 'text-green-600', bg: 'bg-green-50', accent: 'bg-green-100', gradient: 'from-green-400 to-green-600' },
+    'pat-on-back': { border: 'border-rose-400', text: 'text-rose-600', bg: 'bg-rose-50', accent: 'bg-rose-100', gradient: 'from-rose-400 to-rose-600' },
   };
 
   const theme = themeColors[selectedWeek.id] || { border: 'border-teal-custom', text: 'text-teal-custom', bg: 'bg-bg', accent: 'bg-bg-darker', gradient: 'from-teal-custom to-cyan-custom' };

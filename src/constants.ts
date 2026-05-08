@@ -521,18 +521,19 @@ export const WEEKS: WeekData[] = [
       upperId: 'Saya bisa membuat permintaan sopan menggunakan "Would you mind...?"'
     },
     materials: [
+      'PPT Slides (Display Mode)',
+      'Request scenario cards (simple situations)',
       'Plain paper (for hand tracing)',
       'Index cards or half-sheets of paper (for UG request cards)',
       'Crayons, markers, colored pencils',
-      'Glue stick',
       'Pencils'
     ],
     materialsId: [
+      'Slide PPT (Mode Tampilan)',
+      'Kartu skenario permintaan (situasi sederhana)',
       'Kertas polos (untuk menjiplak tangan)',
       'Kartu indeks atau setengah lembar kertas (untuk kartu permintaan UG)',
       'Krayon, spidol, pensil warna',
-      '1 kertas poster besar (untuk pajangan kelas)',
-      'Lem stik',
       'Pensil'
     ],
     review: {
@@ -743,7 +744,6 @@ export const WEEKS: WeekData[] = [
           'Jiplak tanganmu di selembar kertas.',
           'Di dalam gambar tangan, tulis SATU permintaan sopan: "Could you please help me?" atau "Could you please open the door?"',
           'Hias dengan warna. (Tidak perlu digunting, cukup gambar, tulis, warnai).',
-          'Tempelkan gambar tanganmu di poster kelas.'
         ],
         keep: 'The class can display it on the classroom wall.',
         keepId: 'Guru akan memajangnya di dinding kelas.',
@@ -764,7 +764,6 @@ export const WEEKS: WeekData[] = [
           'Tulis SATU permintaan sopan menggunakan "Would you mind...?"',
           'Contoh: "Would you mind opening the window?" atau "Would you mind helping me carry this?"',
           'Hias secara sederhana dengan gambar atau bingkai.',
-          'Tempelkan kartu permintaanmu di poster kelas.'
         ],
         keep: 'The class can display it on the classroom wall.',
         keepId: 'Guru akan memajangnya di dinding kelas.',
@@ -792,63 +791,70 @@ export const WEEKS: WeekData[] = [
     ],
     share: {
       lower: {
-        title: 'Thank You Circle',
-        titleId: 'Lingkaran Terima Kasih',
-        description: 'Sit in a circle and recognize friends who helped you this week.',
-        descriptionId: 'Duduk melingkar dan hargai teman-teman yang membantumu minggu ini.',
-        activity: '______ helped me. Thank you for ______! (Response: You\'re welcome!)',
-        activityId: '______ membantuku. Terima kasih untuk ______! (Tanggapan: You\'re welcome!)'
+        title: 'Gallery Walk & Class Favorite',
+        titleId: 'Gallery Walk & Favorit Kelas',
+        description: 'Stand by your desk and showcase your drawing. Choose a friend to make your request to!',
+        descriptionId: 'Berdirilah di samping mejamu dan pamerkan gambarmu. Pilih seorang teman untuk mengajukan permintaanmu!',
+        activity: 'A: "Could you please ______?" B: "Yes, certainly!" (Then vote for the favorite and draw 😊/😐/😞)',
+        activityId: 'A: "Could you please ______?" B: "Yes, certainly!" (Lalu pilih favorit dan gambar 😊/😐/😞)',
+      },
+      assessment: {
+        lower: ['I can ask "Could you please...?"', 'I remember to say thank you.'],
+        lowerId: ['Saya bisa bertanya "Bolehkah kamu...?"', 'Saya ingat untuk mengucapkan terima kasih.'],
+        upper: ['I learned to ask: "Would you mind...?"', 'I will use more polite phrases.'],
+        upperId: ['Saya belajar bertanya: "Apakah kamu keberatan...?"', 'Saya akan menggunakan lebih banyak ungkapan sopan.']
       },
       upper: {
-        title: 'Thank You Sticky Notes',
-        titleId: 'Catatan Tempel Terima Kasih',
-        description: 'Write a thank you note to someone who helped you and stick it on the wall.',
-        descriptionId: 'Tulis catatan terima kasih kepada seseorang yang membantumu dan tempelkan di dinding.',
-        activity: 'Thank you, ______, for ______. (Stick on Helping Hands poster)',
-        activityId: 'Thank you, ______, for ______. (Tempel di poster Tangan Penolong)'
+        title: 'Speed Requesting & Awards',
+        titleId: 'Speed Requesting & Penghargaan',
+        description: 'Stand in two lines and rotate to practice your requests with different partners.',
+        descriptionId: 'Berdirilah dalam dua baris dan berputar untuk melatih permintaanmu dengan pasangan yang berbeda.',
+        activity: 'A: "Would you mind ______?" B: "Not at all!" (Award the Request Master and self-assess)',
+        activityId: 'A: "Would you mind ______?" B: "Not at all!" (Berikan penghargaan Request Master dan penilaian diri)'
       }
     },
+    lessonTasks: [
+      {
+        title: 'PART 3: CREATE',
+        titleId: 'BAGIAN 3: MEMBUAT',
+        time: '10 min',
+        lower: '“Polite Hand” Drawing: Trace your hand and write ONE polite request inside. Decorate but do NOT cut.',
+        lowerId: 'Gambar "Tangan Sopan": Jiplak tanganmu dan tulis SATU permintaan sopan di dalamnya. Hias tapi JANGAN digunting.',
+        upper: '“Request Card”: Write ONE polite request using “Would you mind…?” on your card and decorate simply.',
+        upperId: '“Kartu Permintaan”: Tulis SATU permintaan sopan menggunakan “Would you mind…?” di kartumu dan hias dengan sederhana.'
+      },
+      {
+        title: 'PART 4: SHARE & ASSESS',
+        titleId: 'BAGIAN 4: BERBAGI & PENILAIAN',
+        time: '15 min',
+        lower: 'Gallery Walk & Invite a Friend (8m), Class Favorite Vote (4m), Self-Assessment (3m).',
+        lowerId: 'Gallery Walk & Undang Teman (8m), Pemilihan Favorit Kelas (4m), Penilaian Diri (3m).',
+        upper: 'Speed Requesting (8m), “Best Request” Award (4m), Self-Assessment (3m).',
+        upperId: 'Speed Requesting (8m), Penghargaan "Permintaan Terbaik" (4m), Penilaian Diri (3m).'
+      }
+    ],
     templates: [
       {
         title: 'Lower Grades – Hand Drawing Template',
         titleId: 'Templat Gambar Tangan – Kelas Bawah',
-        content: `╔═══════════════════════════════════════════════╗
-║                MY POLITE HAND                 ║
-╠═══════════════════════════════════════════════╣
-║                                               ║
-║ 1. Trace your hand here:                      ║
-║                                               ║
-║     🖐️(space for tracing)                     ║
-║                                               ║
-║ 2. Inside the hand, write ONE polite request: ║
-║                                               ║
-║      "Could you please ________________?"     ║
-║                                               ║
-║ 3. Decorate with colors!                      ║
-║                                               ║
-╚═══════════════════════════════════════════════╝`
+        image: 'https://i.pinimg.com/736x/c3/96/1d/c3961d275caef78ecfe74cac6d7e9a2a.jpg',
+        content: `Instructions:
+1. Trace your hand on a blank paper.
+2. Write "Could you please...?" inside.
+3. Decorate it beautifully!`
       },
       {
         title: 'Upper Grades – Request Card Template',
         titleId: 'Templat Kartu Permintaan – Kelas Atas',
-        content: `╔══════════════════════════════════════════════╗
-║           MY REQUEST CARD                    ║
-╠══════════════════════════════════════════════╣
-║                                              ║
-║ Write ONE polite request:                    ║
-║                                              ║
-║ "Would you mind _________________________?"  ║
-║                                              ║
-║ Examples:                                    ║
-║ • opening the window?                        ║
-║ • helping me carry this                      ║
-║ • passing the paper?                         ║
-║ • explaining again?                          ║
-║                                              ║
-║  Decorate with a small drawing!              ║
-║                                              ║
-╚══════════════════════════════════════════════╝`
-      },
+        image: 'https://i.pinimg.com/736x/05/a5/83/05a583b9d4a42bdcdca8e0313d02769e.jpg',
+        content: `Instructions:
+1. Use the image for inspiration.
+2. Write ONE polite request using “Would you mind…?”
+3. Examples:
+   • Would you mind opening the window?
+   • Would you mind helping me carry this?
+4. Decorate simply with a border or drawing.`
+      }
     ],
     roleplay: {
       lower: [
@@ -882,124 +888,99 @@ export const WEEKS: WeekData[] = [
     }
   },
   {
-    id: 'kindred-spirits',
-    title: 'KINDRED SPIRITS',
-    titleId: 'SAHABAT SEJATI',
-    badge: 'Week 7 ✨',
-    description: 'Giving helpful feedback and accepting suggestions positively. Like kindred spirits who help each other grow!',
-    descriptionId: 'Memberikan umpan balik yang bermanfaat dan menerima saran dengan positif. Seperti sahabat sejati yang saling membantu untuk berkembang!',
+    id: 'hunting-high-low',
+    title: 'HUNTING HIGH AND LOW',
+    titleId: 'MENCARI KE SANA KEMARI',
+    badge: 'Week 7 🔍',
+    description: 'Today we are treasure hunters! We will give clues to help our friends find hidden treasure while learning prepositions.',
+    descriptionId: 'Hari ini kita adalah pemburu harta karun! Kita akan memberikan petunjuk untuk membantu teman-teman menemukan harta karun tersembunyi sambil mempelajari kata depan.',
     goals: {
-      lower: 'I can give a compliment using an adverb (nicely, loudly, clearly).',
-      lowerId: 'Saya bisa memberikan pujian menggunakan kata keterangan (dengan baik, dengan keras, dengan jelas).',
-      upper: 'I can give helpful feedback using the sandwich method and accept suggestions positively.',
-      upperId: 'Saya bisa memberikan umpan balik yang bermanfaat menggunakan metode sandwich dan menerima saran dengan positif.'
+      lower: "I can say where things are using in, on, and under.",
+      lowerId: 'Saya bisa menyebutkan di mana benda berada menggunakan in, on, dan under.',
+      upper: "I can describe positions using 6+ prepositions and give helpful directions.",
+      upperId: 'Saya bisa menjelaskan posisi menggunakan 6+ kata depan dan memberikan petunjuk yang bermanfaat.'
     },
     materials: [
-      'PPT Slides (Display Mode)',
-      'Task cards for mini-performances',
-      'Adverb cards',
-      'Feedback sentence starters',
-      'Cardstock paper',
-      'Colored paper (red/yellow/green)',
-      'Markers, crayons, colored pencils',
-      'Scissors, glue sticks, rulers',
-      'Large poster paper',
-      'Peer evaluation forms',
-      'Improvement plan worksheets',
-      '“Growth Mindset” posters',
-      'Hole punch + brass fasteners',
-      'Yarn or string'
+      'PPT Slides (display mode)',
+      '1 "treasure" (sticker, candy, or small eraser)',
+      'Small sticky notes or slips of paper (3 per pair)',
+      'A small box (for the "IN" demonstration)'
     ],
     materialsId: [
-      'Slide PPT (Mode Tampilan)',
-      'Kartu tugas untuk pertunjukan mini',
-      'Kartu kata keterangan',
-      'Kalimat pembuka umpan balik',
-      'Kertas karton',
-      'Kertas warna (merah/kuning/hijau)',
-      'Spidol, krayon, pensil warna',
-      'Gunting, lem stik, penggaris',
-      'Kertas poster besar',
-      'Formulir evaluasi teman',
-      'Lembar kerja rencana perbaikan',
-      'Poster "Growth Mindset"',
-      'Pelubang kertas + pengancing kuningan',
-      'Benang atau tali'
+      'Slide PPT (mode tampilan)',
+      '1 "harta karun" (stiker, permen, atau penghapus kecil)',
+      'Catatan tempel kecil atau potongan kertas (3 per pasangan)',
+      'Kotak kecil (untuk demonstrasi "IN")'
     ],
-    review: {
-      title: 'Week 6 Review: Lend a Hand',
-      titleId: 'Tinjauan Minggu 6: Ulurkan Tangan',
-      activity: 'Quick activity: Two truths and a lie or vocabulary recap game.',
-      activityId: 'Aktivitas cepat: Dua kebenaran dan satu kebohongan atau permainan rekap kosakata.',
-      connection: 'Last week we practiced asking for help. This week, we learn how to give helpful feedback and accept suggestions positively—like kindred spirits who help each other grow!',
-      connectionId: 'Minggu lalu kita berlatih meminta bantuan. Minggu ini, kita belajar cara memberikan umpan balik yang bermanfaat dan menerima saran dengan positif—seperti sahabat sejati yang saling membantu untuk berkembang!'
-    },
+    
     keyPhrases: {
       lower: [
-        'You sang loudly!',
-        'You drew nicely.',
-        'Your colors are good.',
-        'I like your door.'
+        'Is it IN the box?',
+        'Is it ON the table?',
+        'Is it UNDER the chair?',
+        'FAR / VERY FAR',
+        'CLOSE / VERY CLOSE'
       ],
       lowerId: [
-        'Kamu bernyanyi dengan keras!',
-        'Kamu menggambar dengan bagus.',
-        'Warnamu bagus.',
-        'Aku suka pintumu.'
+        'Apakah itu di dalam kotak?',
+        'Apakah itu di atas meja?',
+        'Apakah itu di bawah kursi?',
+        'JAUH / SANGAT JAUH',
+        'DEKAT / SANGAT DEKAT'
       ],
       upper: [
-        'You spoke clearly and confidently.',
-        'Maybe you could speak more slowly.',
-        'Thank you for telling me kindly.',
-        'I see your point. I\'ll work on that.'
+        'Is it NEXT TO the bookshelf?',
+        'Is it BEHIND the door?',
+        'Is it IN FRONT OF the board?',
+        'Is it BETWEEN the desks?',
+        'Is it ABOVE the clock?',
+        'FAR / CLOSE / VERY CLOSE'
       ],
       upperId: [
-        'Kamu berbicara dengan jelas dan percaya diri.',
-        'Mungkin kamu bisa berbicara lebih lambat.',
-        'Terima kasih sudah memberitahuku dengan baik.',
-        'Aku mengerti maksudmu. Aku akan memperbaikinya.'
+        'Apakah itu di samping rak buku?',
+        'Apakah itu di belakang pintu?',
+        'Apakah itu di depan papan tulis?',
+        'Apakah itu di antara meja?',
+        'JAUH / DEKAT / SANGAT DEKAT'
       ]
     },
     vocab: {
       lower: [
-        { word: 'good', meaning: 'bagus', meaningId: 'bagus', example: 'You did a good job!', exampleId: 'Kamu melakukan pekerjaan yang bagus!', emoji: '👍', image: 'https://loremflickr.com/400/400/cartoon,good' },
-        { word: 'better', meaning: 'lebih baik', meaningId: 'lebih baik', example: 'This is better than before.', exampleId: 'Ini lebih baik dari sebelumnya.', emoji: '📈', image: 'https://loremflickr.com/400/400/cartoon,better' },
-        { word: 'loudly', meaning: 'dengan keras', meaningId: 'dengan keras', example: 'You sang loudly!', exampleId: 'Kamu bernyanyi dengan keras!', emoji: '📢', image: 'https://loremflickr.com/400/400/cartoon,loud' },
-        { word: 'softly', meaning: 'dengan lembut', meaningId: 'dengan lembut', example: 'Please speak softly.', exampleId: 'Tolong bicara dengan lembut.', emoji: '🤫', image: 'https://loremflickr.com/400/400/cartoon,soft' },
-        { word: 'clearly', meaning: 'dengan jelas', meaningId: 'dengan jelas', example: 'You spoke clearly.', exampleId: 'Kamu berbicara dengan jelas.', emoji: '✨', image: 'https://loremflickr.com/400/400/cartoon,clear' },
-        { word: 'quickly', meaning: 'dengan cepat', meaningId: 'dengan cepat', example: 'He ran quickly.', exampleId: 'Dia berlari dengan cepat.', emoji: '⚡', image: 'https://loremflickr.com/400/400/cartoon,fast' },
-        { word: 'slowly', meaning: 'dengan lambat', meaningId: 'dengan lambat', example: 'Walk slowly, please.', exampleId: 'Tolong jalan dengan lambat.', emoji: '🐢', image: 'https://loremflickr.com/400/400/cartoon,slow' },
-        { word: 'well', meaning: 'dengan baik', meaningId: 'dengan baik', example: 'You drew well.', exampleId: 'Kamu menggambar dengan baik.', emoji: '👌', image: 'https://loremflickr.com/400/400/cartoon,well' },
-        { word: 'nicely', meaning: 'dengan bagus', meaningId: 'dengan bagus', example: 'You colored it nicely.', exampleId: 'Kamu mewarnainya dengan bagus.', emoji: '🎨', image: 'https://loremflickr.com/400/400/cartoon,nice' },
-        { word: 'carefully', meaning: 'dengan hati-hati', meaningId: 'dengan hati-hati', example: 'Cut the paper carefully.', exampleId: 'Gunting kertasnya dengan hati-hati.', emoji: '🔍', image: 'https://loremflickr.com/400/400/cartoon,careful' }
+        { word: 'in', meaning: 'inside something', meaningId: 'di dalam', example: 'Is it in the box?', exampleId: 'Apakah itu di dalam kotak?', emoji: '📥', image: 'https://i.pinimg.com/736x/58/bf/43/58bf431957ad133406a248de203e7add.jpg' },
+        { word: 'on', meaning: 'on top of something', meaningId: 'di atas', example: 'Is it on the table?', exampleId: 'Apakah itu di atas meja?', emoji: '🔝', image: 'https://i.pinimg.com/736x/78/8e/27/788e27a72d09c681408d63c8953e05a7.jpg' },
+        { word: 'under', meaning: 'below something', meaningId: 'di bawah', example: 'Is it under the chair?', exampleId: 'Apakah itu di bawah kursi?', emoji: '📉', image: 'https://i.pinimg.com/736x/9d/90/1d/9d901dec09989f2f70b4aeab8ce73309.jpg' }
       ],
       upper: [
-        { word: 'kindly', meaning: 'dengan baik hati', meaningId: 'dengan baik hati', example: 'She spoke kindly to me.', exampleId: 'Dia berbicara dengan baik hati kepadaku.', emoji: '❤️', image: 'https://loremflickr.com/400/400/cartoon,kind' },
-        { word: 'specifically', meaning: 'secara spesifik', meaningId: 'secara spesifik', example: 'Can you tell me specifically?', exampleId: 'Bisakah kamu memberitahuku secara spesifik?', emoji: '📍', image: 'https://loremflickr.com/400/400/cartoon,specific' },
-        { word: 'effectively', meaning: 'secara efektif', meaningId: 'secara efektif', example: 'You worked effectively.', exampleId: 'Kamu bekerja secara efektif.', emoji: '⚙️', image: 'https://loremflickr.com/400/400/cartoon,effective' }
+        { word: 'in', meaning: 'inside something', meaningId: 'di dalam', example: 'Is it in the box?', exampleId: 'Apakah itu di dalam kotak?', emoji: '📥', image: 'https://i.pinimg.com/736x/58/bf/43/58bf431957ad133406a248de203e7add.jpg' },
+        { word: 'on', meaning: 'on top of something', meaningId: 'di atas', example: 'Is it on the table?', exampleId: 'Apakah itu di atas meja?', emoji: '🔝', image: 'https://i.pinimg.com/736x/78/8e/27/788e27a72d09c681408d63c8953e05a7.jpg' },
+        { word: 'under', meaning: 'below something', meaningId: 'di bawah', example: 'Is it under the chair?', exampleId: 'Apakah itu di bawah kursi?', emoji: '📉', image: 'https://i.pinimg.com/736x/9d/90/1d/9d901dec09989f2f70b4aeab8ce73309.jpg' },
+        { word: 'next to', meaning: 'beside something', meaningId: 'di samping', example: 'Is it next to the book?', exampleId: 'Apakah itu di samping buku?', emoji: '➡️', image: 'https://i.pinimg.com/736x/f5/6b/d6/f56bd6e4da565bb3c26d6625b49750b2.jpg' },
+        { word: 'behind', meaning: 'at the back of', meaningId: 'di belakang', example: 'Is it behind the door?', exampleId: 'Apakah itu di belakang pintu?', emoji: '🔙', image: 'https://i.pinimg.com/736x/60/44/e4/6044e401c38edd1ede6b9b28da2ef98b.jpg' },
+        { word: 'in front of', meaning: 'at the front', meaningId: 'di depan', example: 'Is it in front of the teacher?', exampleId: 'Apakah itu di depan guru?', emoji: '🏠', image: 'https://i.pinimg.com/1200x/80/36/a9/8036a9d0dffedb88ef62ac2071e14db8.jpg' },
+        { word: 'between', meaning: 'in the middle of two things', meaningId: 'di antara', example: 'Is it between two desks?', exampleId: 'Apakah itu di antara dua meja.', emoji: '↔️', image: 'https://i.pinimg.com/736x/8d/a2/6a/8da26a5798ce1f1742834306dd8ff259.jpg' },
+        { word: 'above', meaning: 'higher than something', meaningId: 'di atas (mengambang)', example: 'Is it above the clock?', exampleId: 'Apakah itu di atas jam?', emoji: '☁️', image: 'https://i.pinimg.com/736x/d3/74/d9/d374d94efbb18c5b9e6f7f115ee6f7dd.jpg' }
       ]
     },
     scramble: {
       lower: [
-        { situation: 'Giving a compliment 📢', situationId: 'Memberikan pujian 📢', words: ['You', 'sang', 'the', 'song', 'loudly', '!'], answer: 'You sang the song loudly!' },
-        { situation: 'Drawing feedback 🎨', situationId: 'Masukan menggambar 🎨', words: ['You', 'drew', 'the', 'house', 'nicely', '.'], answer: 'You drew the house nicely.' }
+        { situation: 'Asking if it is "IN" 📥', situationId: 'Bertanya apakah itu di dalam 📥', words: ['Is', 'it', 'in', 'the', 'box', '?'], answer: 'Is it in the box?' },
+        { situation: 'Asking if it is "ON" 🔝', situationId: 'Bertanya apakah itu di atas 🔝', words: ['Is', 'it', 'on', 'the', 'table', '?'], answer: 'Is it on the table?' }
       ],
       upper: [
-        { situation: 'Using the sandwich method 🥪', situationId: 'Menggunakan metode sandwich 🥪', words: ['Maybe', 'you', 'could', 'speak', 'more', 'slowly', '.'], answer: 'Maybe you could speak more slowly.' },
-        { situation: 'Accepting feedback kindly ❤️', situationId: 'Menerima masukan dengan baik ❤️', words: ['Thank', 'you', 'for', 'telling', 'me', 'kindly', '.'], answer: 'Thank you for telling me kindly.' }
+        { situation: 'Checking "NEXT TO" ➡️', situationId: 'Memeriksa "di samping" ➡️', words: ['Is', 'it', 'next', 'to', 'the', 'book', '?'], answer: 'Is it next to the book?' },
+        { situation: 'Checking "BEHIND" 🔙', situationId: 'Memeriksa "di belakang" 🔙', words: ['Is', 'it', 'behind', 'the', 'door', '?'], answer: 'Is it behind the door?' }
       ]
     },
     chat: {
       lower: [
         {
-          npc: '🎨 Friend: "I finished my drawing! What do you think?"',
-          npcId: '🎨 Teman: "Aku sudah selesai menggambar! Bagaimana menurutmu?"',
+          npc: '🔎 Hunter: "I am looking for the treasure! Give me a question hint!"',
+          npcId: '🔎 Pemburu: "Aku mencari harta karun! Beri aku petunjuk pertanyaan!"',
           turns: [
             {
               choices: [
-                { text: 'You drew nicely! I like the colors.', textId: 'Kamu menggambar dengan bagus! Aku suka warnanya.', points: 3, feedback: 'Great compliment!', feedbackId: 'Pujian yang bagus!' },
-                { text: 'It is good.', textId: 'Itu bagus.', points: 1, feedback: 'Try to use an adverb!', feedbackId: 'Coba gunakan kata keterangan!' },
-                { text: 'I don\'t like it.', textId: 'Aku tidak suka.', points: 0, feedback: 'That\'s not very kind!', feedbackId: 'Itu tidak terlalu baik!' }
+                { text: "Is it UNDER the chair?", textId: 'Apakah itu di bawah kursi?', points: 3, feedback: 'Perfect question! ⭐', feedbackId: 'Pertanyaan sempurna! ⭐' },
+                { text: "It is under the chair.", textId: 'Itu di bawah kursi.', points: 1, feedback: 'Ask it as a question!', feedbackId: 'Tanyakan sebagai pertanyaan!' }
               ]
             }
           ]
@@ -1007,14 +988,13 @@ export const WEEKS: WeekData[] = [
       ],
       upper: [
         {
-          npc: '🎤 Partner: "How was my presentation? I was a bit nervous."',
-          npcId: '🎤 Partner: "Bagaimana presentasiku? Aku agak gugup."',
+          npc: '🔎 Partner: "I need to find the gold! Is it somewhere near the desk?"',
+          npcId: '🔎 Partner: "Aku perlu menemukan emasnya! Apakah ada di dekat meja?"',
           turns: [
             {
               choices: [
-                { text: 'You spoke clearly, but maybe you could speak more slowly. But you did really well!', textId: 'Kamu berbicara dengan jelas, tapi mungkin kamu bisa berbicara lebih lambat. Tapi kamu melakukannya dengan sangat baik!', points: 3, feedback: 'Perfect sandwich method! ⭐', feedbackId: 'Metode sandwich yang sempurna! ⭐' },
-                { text: 'You were too fast.', textId: 'Kamu terlalu cepat.', points: 1, feedback: 'Try to be more encouraging.', feedbackId: 'Coba lebih menyemangati.' },
-                { text: 'It was okay.', textId: 'Itu oke saja.', points: 1, feedback: 'Be more specific!', feedbackId: 'Lebih spesifiklah!' }
+                { text: "Is it NEXT TO the pencil case?", textId: 'Apakah itu di samping kotak pensil?', points: 3, feedback: 'Great question! 🎯', feedbackId: 'Pertanyaan bagus! 🎯' },
+                { text: "Is it BEHIND the door?", textId: 'Apakah itu di belakang pintu?', points: 3, feedback: 'Good use of "behind"!', feedbackId: 'Penggunaan "behind" yang bagus!' }
               ]
             }
           ]
@@ -1022,95 +1002,399 @@ export const WEEKS: WeekData[] = [
       ]
     },
     quiz: [
-      { situation: 'What is the "Sandwich Method" for feedback?', situationId: 'Apa itu "Metode Sandwich" untuk umpan balik?', options: ['Bread, Meat, Bread', 'Compliment, Suggestion, Encouragement', 'Shouting, Crying, Laughing', 'Ignoring, Talking, Leaving'], optionsId: ['Roti, Daging, Roti', 'Pujian, Saran, Semangat', 'Berteriak, Menangis, Tertawa', 'Mengabaikan, Berbicara, Pergi'], correctIndex: 1 },
-      { situation: 'Which word is an adverb?', situationId: 'Kata mana yang merupakan kata keterangan?', options: ['Good', 'Nice', 'Loudly', 'Clear'], optionsId: ['Good', 'Nice', 'Loudly', 'Clear'], correctIndex: 2 }
+      { situation: 'Which word means "di bawah"?', situationId: 'Kata mana yang berarti "di bawah"?', options: ['In', 'On', 'Under', 'Next to'], optionsId: ['In', 'On', 'Under', 'Next to'], correctIndex: 2 },
+      { situation: 'The treasure is hidden. You can\'t see it because it is _____ the door.', situationId: 'Harta karunnya tersembunyi. Kamu tidak bisa melihatnya karena itu _____ pintu.', options: ['On', 'Behind', 'In front of', 'Between'], optionsId: ['On', 'Behind', 'In front of', 'Between'], correctIndex: 1 }
     ],
     meter: {
       lower: [
-        { text: '"You sing good."', textId: '"Kamu menyanyi bagus."', score: 1, explanation: 'Should use "well" or "loudly". 😞', explanationId: 'Harusnya menggunakan "well" atau "loudly". 😞', betterVersion: 'You sing well!' },
+        { text: "It's UNDER the chair.", textId: 'Itu di bawah kursi.', score: 3, explanation: 'Clear and correct!', explanationId: 'Jelas dan benar!', betterVersion: '' },
       ],
       upper: [
-        { text: '"Your drawing is bad, do it better."', textId: '"Gambarmu jelek, buat lebih baik."', score: 1, explanation: 'Too rude! Use the sandwich method. 😞', explanationId: 'Terlalu kasar! Gunakan metode sandwich. 😞', betterVersion: 'I like your colors, but maybe you could add more detail. You are doing great!' }
+        { text: "The treasure is BETWEEN the two books.", textId: 'Harta karunnya di antara dua buku.', score: 3, explanation: 'Excellent use of "between"! 💎', explanationId: 'Penggunaan "between" yang luar biasa! 💎', betterVersion: '' }
       ]
     },
     physicalOutput: {
       lower: {
-        title: 'Adverb Flip Book',
-        titleId: 'Buku Lipat Kata Keterangan',
+        title: 'CREATE - Treasure Map',
+        titleId: 'KREASI - Peta Harta Karun',
         steps: [
-          'Take 4 small cards and staple them together.',
-          'Cover: Write "How Did I Do?" and draw a face.',
-          'Page 1: Write "You did it LOUDLY!" and draw a picture.',
-          'Page 2: Write "You did it SOFTLY!" and draw a picture.',
-          'Page 3: Write "You did it QUICKLY!" and draw a picture.',
-          'Page 4: Write "You did it SLOWLY!" and draw a picture.'
+          'Draw a simple map of the classroom.',
+          'Mark an X: "My treasure is HERE!"',
+          'Write ONE clue as a QUESTION: "Is it UNDER the chair?"',
+          'No cutting, just draw and write.'
         ],
         stepsId: [
-          'Ambil 4 kartu kecil dan staples menjadi satu.',
-          'Sampul: Tulis "How Did I Do?" dan gambar wajah.',
-          'Hal 1: Tulis "You did it LOUDLY!" dan buat gambar.',
-          'Hal 2: Tulis "You did it SOFTLY!" dan buat gambar.',
-          'Hal 3: Tulis "You did it QUICKLY!" dan buat gambar.',
-          'Hal 4: Tulis "You did it SLOWLY!" dan buat gambar.'
+          'Gambar peta sederhana dari ruang kelas.',
+          'Beri tanda X: "Harta karunku ada di SINI!"',
+          'Tulis SATU petunjuk sebagai PERTANYAAN: "Is it UNDER the chair?"',
+          'Tidak perlu menggunting, cukup gambar dan tulis.'
         ],
-        keep: 'Store in your book or take home.',
-        keepId: 'Simpan di bukumu atau bawa pulang.',
-        example: 'You did it LOUDLY! 📢',
-        exampleId: 'Kamu melakukannya dengan KERAS! 📢'
+        keep: 'Keep it in your notebook.',
+        keepId: 'Simpan di buku catatanmu.',
+        example: 'X marks the spot. Question: "Is it UNDER the table?"',
+        exampleId: 'Tanda X. Pertanyaan: "Is it UNDER the table?"'
       },
       upper: {
-        title: 'Feedback Fan',
-        titleId: 'Kipas Umpan Balik',
+        title: 'CREATE - Clue Card Challenge',
+        titleId: 'KREASI - Tantangan Kartu Petunjuk',
         steps: [
-          'Cut 5 paper strips (5cm x 15cm).',
-          'Hole-punch the bottom and attach with a brass fastener.',
-          'Strip 1: "One thing you did well was..."',
-          'Strip 2: "You could improve..."',
-          'Strip 3: "I really liked how you..."',
-          'Strip 4: "Next time, try to..."',
-          'Strip 5: "Overall, you did..."',
-          'Use the fan during peer feedback!'
+          'Write 4 clues as QUESTIONS for a hidden treasure.',
+          'Must use 4 different prepositions: IN, ON, UNDER, NEXT TO.',
+          'Trade with a partner.',
+          'Partner asks the questions to find treasure using FAR/CLOSE.'
         ],
         stepsId: [
-          'Gunting 5 strip kertas (5cm x 15cm).',
-          'Lubangi bagian bawah dan pasang dengan pengancing kuningan.',
-          'Strip 1: "Satu hal yang kamu lakukan dengan baik adalah..."',
-          'Strip 2: "Kamu bisa meningkatkan..."',
-          'Strip 3: "Aku sangat suka bagaimana kamu..."',
-          'Strip 4: "Lain kali, cobalah untuk..."',
-          'Strip 5: "Secara keseluruhan, kamu..."',
-          'Gunakan kipas saat memberikan umpan balik ke teman!'
+          'Tulis 4 petunjuk sebagai PERTANYAAN untuk harta karun.',
+          'Wajib menggunakan 4 kata depan: IN, ON, UNDER, NEXT TO.',
+          'Tukar dengan teman.',
+          'Teman menanyakan pertanyaan untuk menemukan harta karun menggunakan FAR/CLOSE.'
         ],
-        keep: 'Store in your book or pencil case.',
-        keepId: 'Simpan di bukumu atau kotak pensil.',
-        example: 'One thing you did well was speaking clearly.',
-        exampleId: 'Satu hal yang kamu lakukan dengan baik adalah berbicara dengan jelas.'
+        keep: 'Write it in your journal.',
+        keepId: 'Tulis di jurnalmu.',
+        example: '1. Is it NEXT TO the clock? 2. Is it BEHIND the book?',
+        exampleId: '1. Is it NEXT TO the clock? 2. Is it BEHIND the book?'
       }
     },
-    alternativeOutputs: [
-      { type: 'Compliment Tree', typeId: 'Pohon Pujian', lower: 'Write compliments on leaf-shaped sticky notes and glue them to a tree.', lowerId: 'Tulis pujian pada catatan tempel berbentuk daun dan tempelkan ke pohon.', upper: 'Same, but include specific adverbs.', upperId: 'Sama, tapi sertakan kata keterangan yang spesifik.' }
-    ],
     lessonTasks: [
-      { title: 'TASK 1: ADVERB ACTION GAME', titleId: 'TUGAS 1: PERMAINAN AKSI KATA KETERANGAN', time: '10 min', lower: 'Simon Says with Adverbs: "Walk quickly!", "Speak softly!"', lowerId: 'Simon Says dengan Kata Keterangan: "Walk quickly!", "Speak softly!"', upper: 'Adverb Charades Relay: Act out an adverb for your team to guess.', upperId: 'Estafet Tebak Kata Keterangan: Peragakan kata keterangan untuk ditebak timmu.' },
-      { title: 'TASK 2: MINI-PERFORMANCE + FEEDBACK', titleId: 'TUGAS 2: PERTUNJUKAN MINI + UMPAN BALIK', time: '8 min', lower: 'Compliment Circle: Draw a house and receive sticky note compliments.', lowerId: 'Lingkaran Pujian: Gambar rumah dan terima pujian di catatan tempel.', upper: '30-Second Talk + Feedback Sandwich: Give a short talk and receive sandwich feedback.', upperId: 'Bicara 30 Detik + Sandwich Umpan Balik: Berikan pembicaraan singkat dan terima umpan balik sandwich.' },
-      { title: 'TASK 3: RECEIVING FEEDBACK', titleId: 'TUGAS 3: MENERIMA UMPAN BALIK', time: '7 min', lower: 'Practice responding: "Thank you for telling me."', lowerId: 'Berlatih menanggapi: "Terima kasih sudah memberitahuku."', upper: 'Difficult Feedback Scenarios: Practice responding without getting defensive.', upperId: 'Skenario Umpan Balik Sulit: Berlatih menanggapi tanpa menjadi defensif.' }
+      {
+        title: 'Practice Game',
+        titleId: 'Permainan Latihan',
+        time: '7 min',
+        lower: '• Choose a hunter.\n• Hide the gold.\n• Class practices "CLOSE" or "FAR" as the hunter asks "Is it ON the...?"',
+        lowerId: '• Pilih pemburu.\n• Sembunyikan emas.\n• Kelas berlatih "CLOSE" atau "FAR" saat pemburu bertanya "Is it ON the...?"',
+        upper: '• Use "Hot or Cold" rules.\n• Hunter must use complex prepositions like "BEHIND" or "NEXT TO".',
+        upperId: '• Gunakan aturan "Hot or Cold".\n• Pemburu harus menggunakan kata depan kompleks seperti "BEHIND" atau "NEXT TO".',
+      },
+  
     ],
     share: {
-      lower: { title: 'Feedback Champions', titleId: 'Juara Umpan Balik', description: 'Share the nicest compliment you received.', descriptionId: 'Bagikan pujian terbaik yang kamu terima.', activity: 'The nicest compliment I received was ____.', activityId: 'Pujian terbaik yang saya terima adalah ____.' },
-      upper: { title: 'Reflection Share', titleId: 'Berbagi Refleksi', description: 'Share the most helpful feedback you received.', descriptionId: 'Bagikan umpan balik paling bermanfaat yang kamu terima.', activity: 'The most helpful feedback I received was ____.', activityId: 'Umpan balik paling bermanfaat yang saya terima adalah ____.' }
+      lower: {
+        title: 'SHOWCASE: Blindfold Challenge',
+        titleId: 'SHOWCASE: Tantangan Penutup Mata',
+        description: 'One student closes eyes. Partner guides with clues: "Walk NEXT TO the desk. Stop! It\'s UNDER the chair!"',
+        descriptionId: 'Satu siswa menutup mata. Partner memandu dengan petunjuk: "Jalan di SAMPING meja. Berhenti! Itu di BAWAH kursi!"',
+        activity: 'A: "Is it UNDER the chair?" B: "Yes! Class: CHEER!"',
+        activityId: 'A: "Apakah di BAWAH kursi?" B: "Ya! Kelas: BERSORAK!"'
+      },
+      upper: {
+        title: 'SHOWCASE: Beat the Clock',
+        titleId: 'SHOWCASE: Kalahkan Waktu',
+        description: 'Pairs race to find hidden treasure using FULL sentences: "It\'s NEXT TO the bookshelf, not NEXT TO the door!"',
+        descriptionId: 'Pasangan berlomba menemukan harta tersembunyi menggunakan kalimat LENGKAP: "Itu di SAMPING rak buku, bukan di SAMPING pintu!"',
+        activity: 'A: "Is it BEHIND the board?" B: "YES! You are the Master Treasure Hunter!"',
+        activityId: 'A: "Apakah di BELAKANG papan?" B: "YA! Kamu adalah Master Treasure Hunter!"',
+      },
+      assessment: {
+        lower: ['I placed a treasure sticker on my hand.', 'I told my partner where it is: "It\'s ON my hand!"'],
+        lowerId: ['Saya menempelkan stiker harta di tangan.', 'Saya memberi tahu teman di mana itu: "It\'s ON my hand!"'],
+        upper: ['I found the treasure using full sentences.', 'I wrote my favorite clue in my journal.'],
+        upperId: ['Saya menemukan harta menggunakan kalimat lengkap.', 'Saya menulis petunjuk favorit saya di jurnal.']
+      }
     },
     templates: [
-      { title: 'Adverb Flip Book', content: 'Cover: "How Did I Do?"\nPage 1: "You did it LOUDLY!"\nPage 2: "You did it SOFTLY!"\nPage 3: "You did it QUICKLY!"\nPage 4: "You did it SLOWLY!"' },
-      { title: 'Feedback Fan', content: 'Strip 1: One thing you did well was...\nStrip 2: You could improve...\nStrip 3: I really liked how you...\nStrip 4: Next time, try to...\nStrip 5: Overall, you did...' },
-      { title: 'Feedback Sandwich', content: '🍞 TOP BREAD (Compliment)\n🥬 FILLING (Suggestion)\n🍞 BOTTOM BREAD (Encouragement)' }
+      {
+        title: 'TREASURE MAP TEMPLATE',
+        titleId: 'TEMPLAT PETA HARTA KARUN',
+        image: 'https://i.pinimg.com/736x/b7/86/16/b78616713be928da4440933a74eec459.jpg',
+        content: '[Template for drawing your own treasure map]'
+      },
+      {
+        title: 'Clue card template',
+        titleId: 'Templat kartu petunjuk',
+        image: 'https://i.pinimg.com/1200x/6b/70/1e/6b701ef598a338186411917011f8fb8e.jpg',
+        content: '[Template for writing clues behind/under/on top of things]'
+      }
     ],
     roleplay: {
       lower: [
-        { title: 'Compliment Circle 🎨', titleId: 'Lingkaran Pujian 🎨', scenario: 'You just finished a drawing and your friend is looking at it.', scenarioId: 'Kamu baru saja selesai menggambar dan temanmu sedang melihatnya.', npcPrompt: 'Friend: "Wow, you finished! Can I see your drawing?"', npcPromptId: 'Teman: "Wow, kamu sudah selesai! Boleh aku lihat gambarmu?"', suggestedPhrases: ['You drew nicely!', 'I like your colors.', 'You did it carefully!'], suggestedPhrasesId: ['Kamu menggambar dengan bagus!', 'Aku suka warnamu.', 'Kamu melakukannya dengan hati-hati!'], outcome: 'Your friend feels happy and encouraged!', outcomeId: 'Temanmu merasa senang dan termotivasi!' }
+        {
+          title: 'Where Is My Eraser? 🔎',
+          titleId: 'Di Mana Penghapusku? 🔎',
+          scenario: 'Your friend lost their eraser and you are helping them look for it.',
+          scenarioId: 'Temanmu kehilangan penghapusnya dan kamu membantunya mencari.',
+          npcPrompt: 'Friend: "Oh no! I can\'t find my eraser! Where is it?"',
+          npcPromptId: 'Teman: "Oh tidak! Aku tidak bisa menemukan penghapusku! Di mana itu?"',
+          suggestedPhrases: ["It's in your bag.", "It's on the teacher's desk.", "It's under your chair."],
+          suggestedPhrasesId: ['Itu di dalam tasmu.', 'Itu di atas meja guru.', 'Itu di bawah kursimu.'],
+          outcome: 'Your friend found the eraser and is very happy! Success!',
+          outcomeId: 'Temanmu menemukan penghapusnya dan merasa sangat senang! Berhasil!'
+        }
       ],
       upper: [
-        { title: 'The Feedback Sandwich 🥪', titleId: 'Sandwich Umpan Balik 🥪', scenario: 'Your partner just finished a short talk about their hobby.', scenarioId: 'Partner-mu baru saja selesai berbicara singkat tentang hobinya.', npcPrompt: 'Partner: "That was my talk about cats. What did you think?"', npcPromptId: 'Partner: "Itu tadi pembicaraanku tentang kucing. Bagaimana menurutmu?"', suggestedPhrases: ['You spoke clearly, but maybe you could speak more slowly. But you did really well!', 'I really liked your story!', 'Next time, try to look at the audience more.'], suggestedPhrasesId: ['Kamu berbicara dengan jelas, tapi mungkin kamu bisa berbicara lebih lambat. Tapi kamu melakukannya dengan sangat baik!', 'Aku sangat suka ceritamu!', 'Lain kali, cobalah untuk lebih sering melihat penonton.'], outcome: 'Your partner appreciates your helpful and kind feedback!', outcomeId: 'Partner-mu menghargai umpan balikmu yang bermanfaat dan baik!' }
+        {
+          title: 'Classroom Detective 🕵️‍♂️',
+          titleId: 'Detektif Kelas 🕵️‍♂️',
+          scenario: 'One student hides the Class Mascot. You have to give directions to find it.',
+          scenarioId: 'Satu siswa menyembunyikan Maskot Kelas. Kamu harus memberikan petunjuk untuk menemukannya.',
+          npcPrompt: 'Classmate: "Okay, I hid the mascot. Give me a hint!"',
+          npcPromptId: 'Teman sekelas: "Oke, aku sudah sembunyikan maskotnya. Beri aku petunjuk!"',
+          suggestedPhrases: ["It's behind the blue curtains.", "It's next to the bookshelf.", "It's in front of the window."],
+          suggestedPhrasesId: ['Itu di belakang tirai biru.', 'Itu di samping rak buku.', 'Itu di depan jendela.'],
+          outcome: 'You safely guided your classmate to the hidden mascot!',
+          outcomeId: 'Kamu berhasil memandu teman sekelasmu ke maskot yang tersembunyi!'
+        }
+      ]
+    }
+  },
+  {
+    id: 'pat-on-back',
+    title: 'PAT ON THE BACK',
+    titleId: 'BERIKAN PUJIAN',
+    badge: 'Week 8 👏',
+    description: "IDIOM: 'Pat on the Back' = to give someone praise or recognition for something they did well. Example: 'She gave him a pat on the back for finishing his homework on time.'",
+    descriptionId: "IDIOM: 'Pat on the Back' = memberikan pujian atau pengakuan kepada seseorang atas sesuatu yang mereka kerjakan dengan baik. Contoh: 'Dia memberikan pujian kepadanya karena menyelesaikan PR tepat waktu.'",
+    goals: {
+      lower: "I can give a simple compliment using 'Good job!' or 'Nice!'",
+      lowerId: 'Saya bisa memberikan pujian sederhana menggunakan "Good job!" atau "Nice!"',
+      upper: "I can give a specific compliment using 'You are good at...' and respond politely",
+      upperId: 'Saya bisa memberikan pujian spesifik menggunakan "You are good at..." dan menanggapi dengan sopan'
+    },
+    materials: [
+      'PPT Slides (display mode)',
+      'Small slips of paper (1 per student)',
+      'A hat, bowl, or small box',
+      'Paper for star craft (1 per student)',
+      'Markers or crayons',
+      'Scissors (optional)'
+    ],
+    materialsId: [
+      'Slide PPT (mode tampilan)',
+      'Potongan kertas kecil (1 per siswa)',
+      'Topi, mangkuk, atau kotak kecil',
+      'Kertas untuk kerajinan bintang (1 per siswa)',
+      'Spidol atau krayon',
+      'Gunting (opsional)'
+    ],
+    keyPhrases: {
+      lower: [
+        'Good job, [Name]!',
+        'Great work, [Name]!',
+        'Nice smile, [Name]!',
+        'You are kind, [Name]!',
+        'You are funny, [Name]!',
+        'Good job on drawing, [Name]!',
+        'RESPONSE: Thank you!'
+      ],
+      lowerId: [
+        'Kerja bagus, [Name]!',
+        'Pekerjaan hebat, [Name]!',
+        'Senyum yang manis, [Name]!',
+        'Kamu baik, [Name]!',
+        'Kamu lucu, [Name]!',
+        'Kerja bagus dalam menggambar, [Name]!',
+        'TANGGAPAN: Terima kasih!'
+      ],
+      upper: [
+        'You are good at ______.',
+        'I like your ______ because ______.',
+        'Thank you for ______.',
+        'I admire how you ______.',
+        'You have improved at ______.',
+        'RESPONSES: Thank you! / I appreciate that!'
+      ],
+      upperId: [
+        'Kamu pintar dalam ______.',
+        'Aku suka ______ mu karena ______.',
+        'Terima kasih atas ______.',
+        'Aku kagum bagaimana kamu ______.',
+        'Kamu telah meningkat dalam ______.',
+        'TANGGAPAN: Terima kasih! / Saya menghargai itu!'
+      ]
+    },
+    vocab: {
+      lower: [
+        { word: 'good', meaning: 'baik/bagus', meaningId: 'baik/bagus', example: 'Good job!', exampleId: 'Kerja bagus!', emoji: '👍', image: 'src/assets/images/regenerated_image_1777862534560.jpg' },
+        { word: 'great', meaning: 'hebat', meaningId: 'hebat', example: 'Great work!', exampleId: 'Pekerjaan hebat!', emoji: '🙌', image: 'https://media.tenor.com/q-GJP35YYd4AAAAm/ebichu-great-job.webp' },
+        { word: 'nice', meaning: 'bagus', meaningId: 'bagus', example: 'Nice drawing!', exampleId: 'Gambar yang bagus!', emoji: '😊', image: 'https://media.tenor.com/N5oakgmYvTMAAAAm/doraemon-dorami.webp' },
+        { word: 'proud', meaning: 'bangga', meaningId: 'bangga', example: "I'm proud of you!", exampleId: 'Aku bangga padamu!', emoji: '🦁', image: 'https://media.tenor.com/UAKZiKaBOzIAAAAm/dog-gag.webp' },
+        { word: 'awesome', meaning: 'keren', meaningId: 'keren', example: 'Awesome!', exampleId: 'Keren!', emoji: '💥', image: 'https://media.tenor.com/LZaTQSHkX5sAAAAm/plan-b-planbee.webp' },
+        { word: 'thank you', meaning: 'terima kasih', meaningId: 'terima kasih', example: 'Thank you!', exampleId: 'Terima kasih!', emoji: '🙏', image: 'https://media.tenor.com/9Jlp55r7G1oAAAAm/milk-and-mocha.webp' }
+      ],
+      upper: [
+        { word: 'good', meaning: 'baik/bagus', meaningId: 'baik/bagus', example: 'Good job!', exampleId: 'Kerja bagus!', emoji: '👍', image: 'https://media.tenor.com/0HvAgQ02sHYAAAAm/nice.webp' },
+        { word: 'great', meaning: 'hebat', meaningId: 'hebat', example: 'Great work!', exampleId: 'Pekerjaan hebat!', emoji: '🙌', image: 'https://media.tenor.com/bQsP43yE344AAAAM/minions.gif' },
+        { word: 'nice', meaning: 'bagus', meaningId: 'bagus', example: 'Nice drawing!', exampleId: 'Gambar yang bagus!', emoji: '😊', image: 'https://media.tenor.com/72l6j2teSr4AAAAM/nice.gif' },
+        { word: 'proud', meaning: 'bangga', meaningId: 'bangga', example: "I'm proud of you!", exampleId: 'Aku bangga padamu!', emoji: '🦁', image: 'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDNnd2tzOHE4dDRxaHd6ZG5wb2k2OXVqdHByMzhsOTF3OWl2Y2hsayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/hs7Pvg2O3dFqliXKAl/200.webp' },
+        { word: 'awesome', meaning: 'keren', meaningId: 'keren', example: 'Awesome!', exampleId: 'Keren!', emoji: '💥', image: 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2VpdnJwZDk4bTBma2tvYXduOXhzamRxaGpkbHlpanI4Yzk1ejh5ayZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3ohzdIuqJoo8QdKlnW/100.webp' },
+        { word: 'thank you', meaning: 'terima kasih', meaningId: 'terima kasih', example: 'Thank you!', exampleId: 'Terima kasih!', emoji: '🙏', image: 'https://media.tenor.com/LSkCk2Re7EAAAAm/ty.webp' },
+        { word: 'talented', meaning: 'berbakat', meaningId: 'berbakat', example: 'You are talented at art.', exampleId: 'Kamu berbakat dalam seni.', emoji: '⭐', image: 'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWhwaG52c3BoZGNxNGE0bWp0aDc0aDd4NmZ3Z3pxdGRwc2k0N2lseCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/dDU4QMhWK8yVa/giphy.webp' },
+        { word: 'hard work', meaning: 'kerja keras', meaningId: 'kerja keras', example: 'That was hard work!', exampleId: 'Itu adalah kerja keras!', emoji: '💪', image: 'https://media.tenor.com/p_UIyQ16z58AAAAm/abster-abstract.webp' },
+        { word: 'appreciate', meaning: 'menghargai', meaningId: 'menghargai', example: 'I appreciate your help.', exampleId: 'Saya menghargai bantuanmu.', emoji: '💖', image: 'https://media.tenor.com/MmWv57ablikAAAAM/dj-khaled-i-appreciate-you.gif' },
+        { word: 'admire', meaning: 'mengagumi', meaningId: 'mengagumi', example: 'I admire your patience.', exampleId: 'Saya mengagumi kesabaranmu.', emoji: '👀', image: 'https://media.tenor.com/jniJ6APTKvkAAAAM/in-love-anticipation.gif' },
+        { word: 'improve', meaning: 'meningkat', meaningId: 'meningkat', example: "You've improved so much!", exampleId: 'Kamu sudah banyak meningkat!', emoji: '📈', image: 'https://media.tenor.com/P-kTdpK4oMEAAAAm/shremp-shremps.webp' }
+      ]
+    },
+    scramble: {
+      lower: [
+        { situation: 'Giving a compliment 🌟', situationId: 'Memberikan pujian 🌟', words: ['You', 'are', 'good', 'at', 'singing', '.'], answer: 'You are good at singing.' }
+      ],
+      upper: [
+        { situation: 'Admiring a quality 💖', situationId: 'Mengagumi sebuah kualitas 💖', words: ['I', 'admire', 'your', 'patience', 'in', 'class', '.'], answer: 'I admire your patience in class.' }
+      ]
+    },
+    chat: {
+      lower: [
+        {
+          npc: '👩 Teacher: "You did a great job on your drawing today!"',
+          npcId: '👩 Guru: "Kamu melakukan pekerjaan hebat pada gambarmu hari ini!"',
+          turns: [
+            {
+              choices: [
+                { text: 'Thank you!', textId: 'Terima kasih!', points: 3, feedback: 'Perfect response! 😊', feedbackId: 'Tanggapan sempurna! 😊' },
+                { text: 'I know.', textId: 'Aku tahu.', points: 1, feedback: 'A bit too confident, try being polite!', feedbackId: 'Sedikit terlalu percaya diri, cobalah bersikap sopan!' }
+              ]
+            }
+          ]
+        }
+      ],
+      upper: [
+        {
+          npc: '🤝 Friend: "I really appreciate how you helped me with my math homework."',
+          npcId: '🤝 Teman: "Aku sangat menghargai bantuanmu dengan PR matematikaku."',
+          turns: [
+            {
+              choices: [
+                { text: 'You\'re welcome! I\'m happy to help.', textId: 'Sama-sama! Aku senang membantu.', points: 3, feedback: 'Kind and professional! ⭐', feedbackId: 'Baik dan profesional! ⭐' },
+                { text: 'It was easy.', textId: 'Itu gampang.', points: 1, feedback: 'Try to acknowledge their appreciation more warmly!', feedbackId: 'Cobalah untuk mengakui apresiasi mereka dengan lebih hangat!' }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    quiz: [
+      { situation: 'Which phrase is a compliment?', situationId: 'Frasa mana yang merupakan pujian?', options: ['Go away.', 'Good job!', 'I am hungry.', 'Where is it?'], optionsId: ['Pergi sana.', 'Kerja bagus!', 'Aku lapar.', 'Di mana itu?'], correctIndex: 1 },
+      { situation: 'How should you respond to a compliment?', situationId: 'Bagaimana seharusnya kamu menanggapi pujian?', options: ['Say "Thank you"', 'Run away', 'Say "No"', 'Ignore it'], optionsId: ['Ucapkan "Terima kasih"', 'Lari', 'Ucapkan "Tidak"', 'Abaikan'], correctIndex: 0 }
+    ],
+    physicalOutput: {
+      lower: {
+        title: 'CREATE - Simple Star',
+        titleId: 'KREASI - Bintang Sederhana',
+        steps: [
+          'Draw a big star on your paper.',
+          'Write ONE compliment word in the center (GOOD, NICE, GREAT, KIND, SMART).',
+          'On the other side, write a sentence with that compliment word.',
+          'Color and decorate your star.'
+        ],
+        stepsId: [
+          'Gambar bintang besar di kertasmu.',
+          'Tulis SATU kata pujian di tengah (GOOD, NICE, GREAT, KIND, SMART).',
+          'Di sisi balik, tulis satu kalimat dengan kata pujian tersebut.',
+          'Warnai dan hias bintangmu.'
+        ],
+        keep: 'Practice saying: "Good job, friend!"',
+        keepId: 'Berlatihlah mengucapkan: "Good job, friend!"',
+        example: 'Star with "GREAT" in the middle.',
+        exampleId: 'Bintang dengan kata "GREAT" di tengah.'
+      },
+      upper: {
+        title: 'CREATE - Star Compliment',
+        titleId: 'KREASI - Bintang Pujian',
+        steps: [
+          'Draw a big star on your paper.',
+          'Write ONE compliment word in the center (GOOD, NICE, GREAT, KIND, SMART).',
+          'On the other side, write a sentence with that compliment word.',
+          'Color and decorate your star.'
+        ],
+        stepsId: [
+          'Gambar bintang besar di kertasmu.',
+          'Tulis SATU kata pujian di tengah (GOOD, NICE, GREAT, KIND, SMART).',
+          'Di sisi balik, tulis satu kalimat dengan kata pujian tersebut.',
+          'Warnai dan hias bintangmu.'
+        ],
+        keep: 'Give it to the person you wrote about!',
+        keepId: 'Berikan kepada orang yang kamu tulis!',
+        example: 'Dear friend, I give you a pat on the back because...',
+        exampleId: 'Temanku, aku memberimu pujian karena...'
+      }
+    },
+    lessonTasks: [],
+    sentenceFrames: {
+      lower: [
+        { en: "You are [GOOD]!", id: "Kamu sangat [BAIK]!" },
+        { en: "Great work, friend!", id: "Kerja hebat, teman!" },
+        { en: "That is so [NICE]!", id: "Itu sangat [BAGUS]!" },
+        { en: "Awesome job!", id: "Pekerjaan yang keren!" },
+        { en: "I'm proud of you!", id: "Aku bangga padamu!" },
+        { en: "You are smart!", id: "Kamu pintar!" }
+      ],
+      upper: [
+        { en: "I really admire your [ADMIRE]!", id: "Aku sangat mengagumi [KEUNGGULAN]mu!" },
+        { en: "You are talented at [ART]!", id: "Kamu berbakat dalam [SENI]!" },
+        { en: "I appreciate your hard work!", id: "Aku menghargai kerja kerasmu!" },
+        { en: "Give yourself a pat on the back for [IMPROVING]!", id: "Pujilah dirimu sendiri atas [PENINGKATAN]mu!" },
+        { en: "That's an awesome achievement!", id: "Itu adalah pencapaian yang keren!" },
+        { en: "I'm so proud of your progress!", id: "Aku sangat bangga dengan kemajuanmu!" }
+      ]
+    },
+    share: {
+      lower: {
+        title: 'SHOWCASE: Hold Up Stars',
+        titleId: 'SHOWCASE: Angkat Bintang',
+        description: 'Hold up your stars. 3 students share their word aloud. Class repeats with gesture.',
+        descriptionId: 'Angkat bintangmu. 3 siswa membagikan kata-kata mereka. Kelas mengulang dengan gerakan.',
+        activity: 'Thumbs up check: "I can give a compliment today!"',
+        activityId: 'Cek jempol ke atas: "Saya bisa memberikan pujian hari ini!"'
+      },
+      upper: {
+        title: 'SHOWCASE: Exchange Stars',
+        titleId: 'SHOWCASE: Tukar Bintang',
+        description: 'Exchange stars with a partner. Partner reads compliments aloud.',
+        descriptionId: 'Tukar bintang dengan pasangan. Pasangan membaca pujian dengan keras.',
+        activity: 'Quick Write: "One compliment I received was..."',
+        activityId: 'Tulis Cepat: "Satu pujian yang saya terima adalah..."',
+      },
+      assessment: {
+        lower: ['I can give a simple compliment.', 'I used gestures for vocab.'],
+        lowerId: ['Saya bisa memberikan pujian sederhana.', 'Saya menggunakan gerakan untuk kosakata.'],
+        upper: ['I can give specific compliments with "because".', 'I can respond politely to praise.'],
+        upperId: ['Saya bisa memberikan pujian spesifik dengan "because".', 'Saya bisa menanggapi pujian dengan sopan.']
+      }
+    },
+    templates: [
+      {
+        title: 'MY STAR (Lower Grades)',
+        titleId: 'BINTANGKU (Kelas Kecil)',
+        image: 'https://i.pinimg.com/736x/c1/c2/c3/c1c2c3c4c5c6c7c8c9c0c1c2c3c4c5c6.jpg',
+        content: "[Simple Star Template for one-word compliments]"
+      },
+      {
+        title: 'STAR CARD (Upper Grades)',
+        titleId: 'KARTU BINTANG (Kelas Besar)',
+        image: 'https://i.pinimg.com/736x/d1/d2/d3/d1d2d3d4d5d6d7d8d9d0d1d2d3d4d5d6.jpg',
+        content: "[Detailed Star Template for front/back specific compliments]"
+      }
+    ],
+    roleplay: {
+      lower: [
+        {
+          title: 'The Kind Friend 💖',
+          titleId: 'Teman yang Baik 💖',
+          scenario: 'Your friend just finished a beautiful drawing. What do you say?',
+          scenarioId: 'Temanmu baru saja menyelesaikan gambar yang indah. Apa yang kamu katakan?',
+          npcPrompt: 'Friend: "Look at my new drawing of a space cat! Do you like it?"',
+          npcPromptId: 'Teman: "Lihat gambar baru kucing angkasaku! Kamu suka?"',
+          suggestedPhrases: ["Good job! It looks awesome.", "I like the colors you used.", "You are so talented!"],
+          suggestedPhrasesId: ['Kerja bagus! Kelihatannya keren.', 'Aku suka warna yang kamu gunakan.', 'Kamu sangat berbakat!'],
+          outcome: 'Your friend is beaming with pride and thanks you for the kind words!',
+          outcomeId: 'Temanmu berseri-seri dengan bangga dan berterima kasih atas kata-kata baikmu!'
+        }
+      ],
+      upper: [
+        {
+          title: 'Appreciation Master 🏅',
+          titleId: 'Master Apresiasi 🏅',
+          scenario: 'A classmate helped you understand a difficult math problem after class.',
+          scenarioId: 'Seorang teman sekelas membantumu memahami soal matematika yang sulit setelah kelas.',
+          npcPrompt: 'Classmate: "I\'m glad you finally understood that equation. It was tricky!"',
+          npcPromptId: 'Teman sekelas: "Aku senang kamu akhirnya mengerti persamaan itu. Itu memang sulit!"',
+          suggestedPhrases: ["I really appreciate your help.", "I admire how clearly you explain things.", "Thank you! You made it so much easier."],
+          suggestedPhrasesId: ['Aku sangat menghargai bantuanmu.', 'Aku kagum betapa jelasnya kamu menjelaskan sesuatu.', 'Terima kasih! Kamu membuatnya jadi jauh lebih mudah.'],
+          outcome: 'Your classmate feels valued and the friendship grows stronger! Positive vibes!',
+          outcomeId: 'Teman sekelasmu merasa dihargai dan persahabatan kalian semakin kuat! Aura positif!'
+        }
       ]
     }
   }
 ];
+

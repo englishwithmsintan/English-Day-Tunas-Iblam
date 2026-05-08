@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Heart, Play, RotateCcw, Trophy } from 'lucide-react';
 import { WeekData, Language } from '../../types';
-import { speak } from '../../services/ttsService';
+import { speakQueued, prewarmAudio } from '../../services/ttsService';
 
 interface PoliteQuizProps {
   weekData: WeekData;
@@ -37,7 +37,8 @@ export const PoliteQuiz: React.FC<PoliteQuizProps> = ({ weekData, theme, languag
   const handleSpeak = async (text: string, style: 'cheerful' | 'clear' = 'cheerful') => {
     if (isSpeaking) return;
     setIsSpeaking(true);
-    await speak(text, style);
+    prewarmAudio();
+    await speakQueued(text, style);
     setIsSpeaking(false);
   };
 
@@ -94,10 +95,10 @@ export const PoliteQuiz: React.FC<PoliteQuizProps> = ({ weekData, theme, languag
   return (
     <div className={`card border-4 ${theme.border}`}>
       <h2 className={`text-3xl md:text-4xl mb-6 flex items-center gap-4 ${theme.text}`}>
-        ⚡ {language === 'en' ? 'Task 3: Pick the Polite One!' : 'Tugas 3: Pilih yang Sopan!'}
+        ⚡ {language === 'en' ? 'Pick the Correct One!' : 'Pilih yang Benar!'}
       </h2>
       <p className="text-xl text-t2 mb-8">
-        {language === 'en' ? 'Which sounds the most polite? Tap your answer! 🎯' : 'Mana yang terdengar paling sopan? Ketuk jawabanmu! 🎯'}
+        {language === 'en' ? 'Which sounds the most perfect? Tap your answer! 🎯' : 'Mana yang terdengar paling benar? Ketuk jawabanmu! 🎯'}
       </p>
 
       <div className={`bg-white p-8 rounded-[40px] border-4 ${theme.border} shadow-inner`}>
@@ -118,12 +119,20 @@ export const PoliteQuiz: React.FC<PoliteQuizProps> = ({ weekData, theme, languag
           </span>
         </div>
 
-        <div className={`${theme.bg} rounded-[32px] p-8 mb-8 text-center min-h-[140px] flex items-center justify-center font-fredoka text-2xl text-t1 border-2 border-white shadow-sm`}>
+        <div className={`${theme.bg} rounded-[32px] p-8 mb-8 text-center min-h-[140px] flex items-center justify-center font-fredoka text-2xl text-t1 border-2 border-white shadow-sm relative group`}>
           {isGameOver 
             ? (language === 'en' ? '🎉 Quiz finished!' : '🎉 Kuis selesai!') 
             : (currentItem 
                 ? (language === 'en' ? currentItem.situation : currentItem.situationId || currentItem.situation) 
                 : (language === 'en' ? 'Press Start to begin! 🚀' : 'Tekan Mulai untuk memulai! 🚀'))}
+          {currentItem && !isGameOver && (
+            <button
+              onClick={() => handleSpeak(language === 'en' ? currentItem.situation : currentItem.situationId || currentItem.situation)}
+              className="absolute top-2 right-2 p-2 rounded-xl opacity-0 group-hover:opacity-60 hover:!opacity-100 transition-all bg-white/50"
+            >
+              <Play size={20} className={theme.text} />
+            </button>
+          )}
         </div>
 
         <div className="grid gap-4">
@@ -143,7 +152,18 @@ export const PoliteQuiz: React.FC<PoliteQuizProps> = ({ weekData, theme, languag
                       : 'bg-white border-bg-darker opacity-30'}
               `}
             >
-              {language === 'en' ? opt : currentItem.optionsId?.[i] || opt}
+              <div className="flex items-center justify-between gap-4">
+                <span>{language === 'en' ? opt : currentItem.optionsId?.[i] || opt}</span>
+                <div
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleSpeak(opt, 'clear');
+                  }}
+                  className={`p-2 rounded-lg hover:bg-black/5 transition-all ${selectedOption !== null && (i === currentItem.correctIndex || i === selectedOption) ? 'text-white' : theme.text}`}
+                >
+                  <Play size={18} />
+                </div>
+              </div>
             </button>
           ))}
         </div>

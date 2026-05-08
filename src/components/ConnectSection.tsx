@@ -30,7 +30,23 @@ export const ConnectSection: React.FC<ConnectSectionProps> = ({ gradeLevel, setG
     }
   };
 
-  const phrases = gradeLevel === 'lower' ? weekData.keyPhrases.lower : weekData.keyPhrases.upper;
+    const phrases = gradeLevel === 'lower' ? weekData.keyPhrases.lower : weekData.keyPhrases.upper;
+
+    const introText = weekData.id === 'hunting-high-low'
+      ? (language === 'en' 
+          ? '🔍 Treasure hunters need sharp eyes and clear words!' 
+          : '🔍 Pemburu harta karun butuh mata yang tajam dan kata-kata yang jelas!')
+      : (language === 'en' 
+          ? '🤔 Learning about each other helps us build a better community!' 
+          : '🤔 Mengenal satu sama lain membantu kita membangun komunitas yang lebih baik!');
+
+    const supportText = weekData.id === 'hunting-high-low'
+      ? (language === 'en' 
+          ? 'Today we use prepositions to solve mysteries and find gold!' 
+          : 'Hari ini kita menggunakan kata depan untuk memecahkan misteri dan menemukan emas!')
+      : (language === 'en' 
+          ? 'Today we become explorers of our own stories and talents!' 
+          : 'Hari ini kita menjadi penjelajah cerita dan bakat kita sendiri!');
 
   return (
     <motion.div
@@ -49,13 +65,19 @@ export const ConnectSection: React.FC<ConnectSectionProps> = ({ gradeLevel, setG
               {language === 'en' ? weekData.review.title : weekData.review.titleId}
             </h3>
           </div>
-          <div className="bg-bg-light p-4 rounded-2xl border-2 border-bg-darker">
+          <div className="bg-bg-light p-4 rounded-2xl border-2 border-bg-darker relative group">
             <p className="text-t2 font-fredoka font-bold mb-2">
               <span className={theme.text}>{language === 'en' ? 'Activity:' : 'Aktivitas:'}</span> {language === 'en' ? weekData.review.activity : weekData.review.activityId}
             </p>
             <p className="text-t3 font-fredoka font-bold italic text-sm">
               ✨ {language === 'en' ? weekData.review.connection : weekData.review.connectionId}
             </p>
+            <button
+              onClick={() => handleSpeak(`${language === 'en' ? weekData.review.activity : weekData.review.activityId}. ${language === 'en' ? weekData.review.connection : weekData.review.connectionId}`)}
+              className="absolute top-2 right-2 p-2 rounded-xl opacity-0 group-hover:opacity-60 hover:!opacity-100 transition-all bg-white shadow-sm"
+            >
+              <Volume2 size={20} className={theme.text} />
+            </button>
           </div>
         </div>
       )}
@@ -69,14 +91,28 @@ export const ConnectSection: React.FC<ConnectSectionProps> = ({ gradeLevel, setG
             <p className="text-xl text-t2 leading-relaxed font-fredoka font-medium">
               {language === 'en' ? weekData.description : weekData.descriptionId || weekData.description}
             </p>
+            <button
+              onClick={() => handleSpeak(language === 'en' ? weekData.description : weekData.descriptionId || weekData.description)}
+              className={`mt-2 flex items-center gap-1.5 text-xs font-bold ${theme.text} hover:underline opacity-60 hover:opacity-100 transition-opacity`}
+            >
+              <Volume2 className="w-3.5 h-3.5" /> {language === 'en' ? 'Listen' : 'Dengarkan'}
+            </button>
           </div>
 
           {/* Materials Needed */}
           {weekData.materials && (
             <div className={`w-full md:w-72 bg-bg-light border-2 ${theme.border} border-dashed rounded-3xl p-5`}>
-              <h3 className={`text-sm font-fredoka font-black ${theme.text} uppercase tracking-widest mb-3 flex items-center gap-2`}>
-                <ClipboardList size={16} />
-                {language === 'en' ? 'Materials Needed' : 'Bahan yang Dibutuhkan'}
+              <h3 className={`text-sm font-fredoka font-black ${theme.text} uppercase tracking-widest mb-3 flex items-center justify-between gap-2`}>
+                <div className="flex items-center gap-2">
+                  <ClipboardList size={16} />
+                  {language === 'en' ? 'Materials Needed' : 'Bahan yang Dibutuhkan'}
+                </div>
+                <button
+                  onClick={() => handleSpeak((language === 'en' ? weekData.materials : weekData.materialsId)?.join(', ') || '')}
+                  className="opacity-40 hover:opacity-100 transition-opacity"
+                >
+                  <Volume2 size={14} />
+                </button>
               </h3>
               <ul className="space-y-1.5">
                 {(language === 'en' ? weekData.materials : weekData.materialsId)?.map((item, i) => (
@@ -90,27 +126,30 @@ export const ConnectSection: React.FC<ConnectSectionProps> = ({ gradeLevel, setG
           )}
         </div>
         
-        <div className={`bg-white border-4 ${theme.border} rounded-[40px] p-8 md:p-12 mb-8 text-center shadow-inner relative overflow-hidden`}>
-          <p className={`text-2xl md:text-3xl font-fredoka ${theme.text} relative z-10 font-bold`}>
-            {language === 'en' 
-              ? '🤔 Learning about each other helps us build a better community!' 
-              : '🤔 Mengenal satu sama lain membantu kita membangun komunitas yang lebih baik!'}
-          </p>
-          <div className={`absolute inset-0 ${theme.accent} opacity-30 pointer-events-none`} />
-        </div>
+        {/* Only show intro for specific weeks if needed, otherwise removed as requested */}
+        {weekData.id === 'hunting-high-low' && (
+          <>
+            <div className={`bg-white border-4 ${theme.border} rounded-[40px] p-8 md:p-12 mb-8 text-center shadow-inner relative overflow-hidden`}>
+              <p className={`text-2xl md:text-3xl font-fredoka ${theme.text} relative z-10 font-bold`}>
+                {introText}
+              </p>
+              <div className={`absolute inset-0 ${theme.accent} opacity-30 pointer-events-none`} />
+            </div>
 
-        <div className="flex items-start gap-4 mb-8">
-          <div className={`${theme.accent} p-3 rounded-xl mt-1`}>
-            <Lightbulb className={`${theme.text} w-6 h-6`} />
-          </div>
-          <div>
-            <p className={`text-xl ${theme.text} font-semibold`}>
-              {language === 'en' 
-                ? 'Today we become explorers of our own stories and talents!' 
-                : 'Hari ini kita menjadi penjelajah cerita dan bakat kita sendiri!'}
-            </p>
-          </div>
-        </div>
+            <div className="flex items-start gap-4 mb-8">
+              <div className={`${theme.accent} p-3 rounded-xl mt-1`}>
+                <Lightbulb className={`${theme.text} w-6 h-6`} />
+              </div>
+              <div>
+                <p className={`text-xl ${theme.text} font-semibold`}>
+                  {supportText}
+                </p>
+              </div>
+            </div>
+          </>
+        )}
+
+        {/* Lesson Timeline - Removed as requested */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <motion.div
@@ -130,6 +169,15 @@ export const ConnectSection: React.FC<ConnectSectionProps> = ({ gradeLevel, setG
                 ? (language === 'en' ? weekData.goals.lower : weekData.goals.lowerId || weekData.goals.lower) 
                 : (language === 'en' ? weekData.goals.upper : weekData.goals.upperId || weekData.goals.upper)}
             </div>
+            <button
+              onClick={() => handleSpeak(gradeLevel === 'lower' 
+                ? (language === 'en' ? weekData.goals.lower : weekData.goals.lowerId || weekData.goals.lower) 
+                : (language === 'en' ? weekData.goals.upper : weekData.goals.upperId || weekData.goals.upper)
+              )}
+              className="mt-4 flex items-center justify-center gap-1.5 text-xs font-bold text-white/80 hover:text-white hover:underline transition-all"
+            >
+              <Volume2 className="w-3.5 h-3.5" /> {language === 'en' ? 'Listen' : 'Dengarkan'}
+            </button>
           </motion.div>
 
           <div className={`${theme.bg} p-8 rounded-[40px] border-2 border-white shadow-inner`}>
