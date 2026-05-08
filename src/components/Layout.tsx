@@ -209,6 +209,13 @@ export const Layout: React.FC<LayoutProps> = ({
         <main>
           {children}
         </main>
+
+        {/* Footer Credit */}
+        <footer className="mt-16 pb-8 text-center">
+          <p className="font-fredoka text-sm text-t3 font-bold opacity-60 uppercase tracking-widest">
+            Created by Intan Fazillah, S.S.
+          </p>
+        </footer>
       </div>
     </div>
   );
