@@ -1436,16 +1436,16 @@ export const WEEKS: WeekData[] = [
     },
     vocab: {
       lower: [
-        { word: 'happy', meaning: 'senang/bahagia', meaningId: 'senang/bahagia', example: 'I feel happy today!', exampleId: 'Aku merasa senang hari ini!', emoji: '😊', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKVUn7iM8FMEU24/giphy.gif' },
-        { word: 'sad', meaning: 'sedih', meaningId: 'sedih', example: 'I am sad right now.', exampleId: 'Aku sedang sedih sekarang.', emoji: '😢', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d2lcHJTG5Tscg/giphy.gif' },
-        { word: 'angry', meaning: 'marah', meaningId: 'marah', example: 'It\'s okay to be angry.', exampleId: 'Tidak apa-apa merasa marah.', emoji: '😠', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J9u3TZfpmeDLkD6/giphy.gif' },
-        { word: 'sleepy', meaning: 'mengantuk', meaningId: 'mengantuk', example: 'I am so sleepy.', exampleId: 'Aku sangat mengantuk.', emoji: '😴', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZgYAzf269oP5S/giphy.gif' },
+        { word: 'happy', meaning: 'senang/bahagia', meaningId: 'senang/bahagia', example: 'I feel happy today!', exampleId: 'Aku merasa senang hari ini!', emoji: '😊', image: 'https://media.tenor.com/dEN66mMlhB8AAAAm/i-love-you.webp' },
+        { word: 'sad', meaning: 'sedih', meaningId: 'sedih', example: 'I am sad right now.', exampleId: 'Aku sedang sedih sekarang.', emoji: '😢', image: 'https://media.tenor.com/EKrsFntSuSgAAAAm/sad.webp' },
+        { word: 'angry', meaning: 'marah', meaningId: 'marah', example: 'It\'s okay to be angry.', exampleId: 'Tidak apa-apa merasa marah.', emoji: '😠', image: 'https://media.tenor.com/BrJjmVscA4YAAAAm/bubu-angry-bubu-fierce.webp' },
+        { word: 'sleepy', meaning: 'mengantuk', meaningId: 'mengantuk', example: 'I am so sleepy.', exampleId: 'Aku sangat mengantuk.', emoji: '😴', image: 'https://media.tenor.com/nnY3r1WPbnAAAAAm/sleepy.webp' },
       ],
       upper: [
-        { word: 'nervous', meaning: 'gugup', meaningId: 'gugup', example: 'I feel nervous about the test.', exampleId: 'Aku merasa gugup menghadapi ujian.', emoji: '😟', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26ufcVAp3AiJJsrIs/giphy.gif' },
-        { word: 'excited', meaning: 'bersemangat', meaningId: 'bersemangat', example: 'I am excited for the trip!', exampleId: 'Aku bersemangat untuk karyawisata!', emoji: '🤩', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lUjID0K8nNxO0g/giphy.gif' },
-        { word: 'confused', meaning: 'bingung', meaningId: 'bingung', example: 'I am a bit confused.', exampleId: 'Aku agak bingung.', emoji: '🤔', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btPCcdNniyf0XYc/giphy.gif' },
-        { word: 'empathy', meaning: 'empati', meaningId: 'empati', example: 'Show empathy to your friends.', exampleId: 'Tunjukkan empati kepada teman-temanmu.', emoji: '🤝', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKuylOmX8ReLth6/giphy.gif' },
+        { word: 'nervous', meaning: 'gugup', meaningId: 'gugup', example: 'I feel nervous about the test.', exampleId: 'Aku merasa gugup menghadapi ujian.', emoji: '😟', image: 'https://media.tenor.com/j8mTlPBfReMAAAAM/spongbobe.gif' },
+        { word: 'excited', meaning: 'bersemangat', meaningId: 'bersemangat', example: 'I am excited for the trip!', exampleId: 'Aku bersemangat untuk karyawisata!', emoji: '🤩', image: 'https://media.tenor.com/j8mTlPBfReMAAAAM/spongbobe.gif' },
+        { word: 'confused', meaning: 'bingung', meaningId: 'bingung', example: 'I am a bit confused.', exampleId: 'Aku agak bingung.', emoji: '🤔', image: 'https://media.tenor.com/CqTcYek3taEAAAAM/spongebob-spongebob-meme.gif' },
+        { word: 'empathy', meaning: 'empati', meaningId: 'empati', example: 'Show empathy to your friends.', exampleId: 'Tunjukkan empati kepada teman-temanmu.', emoji: '🤝', image: 'https://media.tenor.com/CksAc6UQZDoAAAAM/fluffy-anto.gif' },
       ]
     },
     scramble: {

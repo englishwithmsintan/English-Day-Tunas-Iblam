@@ -9,13 +9,18 @@ interface SentenceFramesProps {
   frames: { en: string; id: string }[];
   theme: any;
   language: Language;
+  title?: string;
+  titleId?: string;
 }
 
-export const SentenceFrames: React.FC<SentenceFramesProps> = ({ grade, frames, theme, language }) => {
+export const SentenceFrames: React.FC<SentenceFramesProps> = ({ grade, frames, theme, language, title, titleId }) => {
   const handleSpeak = (text: string) => {
     prewarmAudio();
     speakQueued(text, 'playful');
   };
+
+  const defaultTitle = language === 'en' ? 'Ways to Give a Compliment 💬' : 'Cara Memberi Pujian 💬';
+  const displayTitle = language === 'en' ? (title || 'Ways to Give a Compliment 💬') : (titleId || 'Cara Memberi Pujian 💬');
 
   // Fun color palette for the cards - using slightly darker text for better contrast
   const cardColors = [
@@ -41,7 +46,7 @@ export const SentenceFrames: React.FC<SentenceFramesProps> = ({ grade, frames, t
           </span>
         </motion.div>
         <h3 className="text-3xl md:text-5xl font-fredoka font-black text-[#185b74] tracking-tight">
-          {language === 'en' ? 'Ways to Give a Compliment 💬' : 'Cara Memberi Pujian 💬'}
+          {displayTitle}
         </h3>
         <p className="text-xl text-black font-bold">
           {language === 'en' ? 'Tap a card to hear how to say it!' : 'Ketuk kartu untuk mendengar cara mengucapkannya!'}

@@ -41,7 +41,9 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({ gradeLevel, we
                 grade={gradeLevel} 
                 frames={gradeLevel === 'lower' ? weekData.sentenceFrames.lower : weekData.sentenceFrames.upper} 
                 theme={theme} 
-                language={language} 
+                language={language}
+                title={weekData.id === 'how-are-you-feeling' ? 'Ways to Express Feelings 💬' : undefined}
+                titleId={weekData.id === 'how-are-you-feeling' ? 'Cara Mengungkapkan Perasaan 💬' : undefined}
               />
             )}
             {weekData.scramble && (gradeLevel === 'lower' ? weekData.scramble.lower.length > 0 : weekData.scramble.upper.length > 0) && (
