@@ -1395,6 +1395,206 @@ export const WEEKS: WeekData[] = [
         }
       ]
     }
+  },
+  {
+    id: 'how-are-you-feeling',
+    title: 'HOW ARE YOU FEELING?',
+    badge: 'Week 9 😊',
+    description: 'Expressing emotions and showing empathy. Let\'s talk about how we feel!',
+    descriptionId: 'Mengekspresikan emosi dan menunjukkan empati. Mari bicara tentang perasaan kita!',
+    goals: {
+      lower: 'I can name 4 basic feelings and say how I feel today.',
+      lowerId: 'Saya bisa menyebutkan 4 perasaan dasar dan mengatakan bagaimana perasaan saya hari ini.',
+      upper: 'I can explain why I feel a certain way and respond to others with empathy.',
+      upperId: 'Saya bisa menjelaskan mengapa saya merasakan hal tertentu dan merespons orang lain dengan empati.'
+    },
+    keyPhrases: {
+      lower: [
+        'How are you feeling?',
+        'I feel happy today!',
+        'I am sad because I lost my toy.',
+        'It is okay to feel angry.'
+      ],
+      lowerId: [
+        'Bagaimana perasaanmu?',
+        'Aku merasa senang hari ini!',
+        'Aku sedih karena mainanku hilang.',
+        'Tidak apa-apa merasa marah.'
+      ],
+      upper: [
+        'I feel nervous about the test.',
+        'I am excited for the weekend!',
+        'I understand how you feel.',
+        'Is there anything I can do to help?'
+      ],
+      upperId: [
+        'Aku merasa gugup menghadapi ujian.',
+        'Aku bersemangat menyambut akhir pekan!',
+        'Aku mengerti perasaanmu.',
+        'Apa ada yang bisa aku bantu?'
+      ]
+    },
+    vocab: {
+      lower: [
+        { word: 'happy', meaning: 'senang/bahagia', meaningId: 'senang/bahagia', example: 'I feel happy today!', exampleId: 'Aku merasa senang hari ini!', emoji: '😊', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKVUn7iM8FMEU24/giphy.gif' },
+        { word: 'sad', meaning: 'sedih', meaningId: 'sedih', example: 'I am sad right now.', exampleId: 'Aku sedang sedih sekarang.', emoji: '😢', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/d2lcHJTG5Tscg/giphy.gif' },
+        { word: 'angry', meaning: 'marah', meaningId: 'marah', example: 'It\'s okay to be angry.', exampleId: 'Tidak apa-apa merasa marah.', emoji: '😠', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l1J9u3TZfpmeDLkD6/giphy.gif' },
+        { word: 'sleepy', meaning: 'mengantuk', meaningId: 'mengantuk', example: 'I am so sleepy.', exampleId: 'Aku sangat mengantuk.', emoji: '😴', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ZgYAzf269oP5S/giphy.gif' },
+      ],
+      upper: [
+        { word: 'nervous', meaning: 'gugup', meaningId: 'gugup', example: 'I feel nervous about the test.', exampleId: 'Aku merasa gugup menghadapi ujian.', emoji: '😟', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26ufcVAp3AiJJsrIs/giphy.gif' },
+        { word: 'excited', meaning: 'bersemangat', meaningId: 'bersemangat', example: 'I am excited for the trip!', exampleId: 'Aku bersemangat untuk karyawisata!', emoji: '🤩', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l41lUjID0K8nNxO0g/giphy.gif' },
+        { word: 'confused', meaning: 'bingung', meaningId: 'bingung', example: 'I am a bit confused.', exampleId: 'Aku agak bingung.', emoji: '🤔', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7btPCcdNniyf0XYc/giphy.gif' },
+        { word: 'empathy', meaning: 'empati', meaningId: 'empati', example: 'Show empathy to your friends.', exampleId: 'Tunjukkan empati kepada teman-temanmu.', emoji: '🤝', image: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp1eXF6NHR4eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eXJ5eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKuylOmX8ReLth6/giphy.gif' },
+      ]
+    },
+    scramble: {
+      lower: [
+        { situation: 'How you feel today 🌟', words: ['I', 'feel', 'happy', 'because', 'it', 'is', 'sunny', '.'], answer: 'I feel happy because it is sunny.' },
+      ],
+      upper: [
+        { situation: 'Feeling before a test 📝', words: ['I', 'am', 'nervous', 'about', 'the', 'math', 'test', 'today', '.'], answer: 'I am nervous about the math test today.' },
+      ]
+    },
+    physicalOutput: {
+      lower: {
+        title: 'Feeling Face Craft',
+        titleId: 'Kerajinan Wajah Perasaan',
+        steps: [
+          'Draw a big circle on your paper.',
+          'Divide it into 4 parts.',
+          'Draw 4 different feelings: Happy, Sad, Angry, Sleepy.',
+          'Label them in English.'
+        ],
+        stepsId: [
+          'Gambar lingkaran besar di kertasmu.',
+          'Bagi menjadi 4 bagian.',
+          'Gambar 4 perasaan berbeda: Happy, Sad, Angry, Sleepy.',
+          'Beri label dalam bahasa Inggris.'
+        ],
+        keep: 'Use your "Feeling Face" to show how you feel!',
+        keepId: 'Gunakan "Feeling Face"-mu untuk menunjukkan perasaanmu!',
+        example: 'Happy 😊, Sad 😢',
+        exampleId: 'Siswa menunjukkan gambar wajah senang.'
+      },
+      upper: {
+        title: 'Emotion Shield',
+        titleId: 'Perisai Emosi',
+        steps: [
+          'Draw a shield shape.',
+          'In the center, write "MY EMOTIONS".',
+          'Write 3 feelings you often feel and WHY.',
+          'On the borders, write ways to show empathy to others.'
+        ],
+        stepsId: [
+          'Gambar bentuk perisai.',
+          'Di tengah, tulis "MY EMOTIONS".',
+          'Tulis 3 perasaan yang sering kamu rasakan dan ALASANNYA.',
+          'Di pinggirannya, tulis cara menunjukkan empati kepada orang lain.'
+        ],
+        keep: 'Keep your shield as a reminder to be kind.',
+        keepId: 'Simpan perisaimu sebagai pengingat untuk bersikap baik.',
+        example: 'I feel excited when I play games.',
+        exampleId: 'Perisai dengan tulisan "I feel excited when..."'
+      }
+    },
+    sentenceFrames: {
+      lower: [
+        { en: "I feel [HAPPY]!", id: "Aku merasa [SENANG]!" },
+        { en: "Why do you feel [SAD]?", id: "Mengapa kamu merasa [SEDIH]?" },
+        { en: "I am [SLEEPY] today.", id: "Aku [MENGANTUK] hari ini." }
+      ],
+      upper: [
+        { en: "I am [EXCITED] for the weekend!", id: "Aku [BERSEMANGAT] menyambut akhir pekan!" },
+        { en: "I feel [NERVOUS] because of the test.", id: "Aku merasa [GUGUP] karena ujian." },
+        { en: "I understand that you feel [CONFUSED].", id: "Aku mengerti bahwa kamu merasa [BINGUNG]." }
+      ]
+    },
+    chat: {
+      lower: [
+        {
+          npc: '😊 Friend: "I got a new puppy today! I feel so happy!"',
+          npcId: '😊 Teman: "Aku punya anak anjing baru hari ini! Aku merasa sangat senang!"',
+          turns: [
+            {
+              choices: [
+                { text: "That's awesome! I'm happy for you!", textId: "Itu luar biasa! Aku ikut senang!", points: 3, feedback: "Great way to join their happiness!", feedbackId: "Cara bagus untuk ikut merasakan kebahagiaan mereka!" },
+                { text: "Okay.", textId: "Oke.", points: 1, feedback: "Try to say more to show you care.", feedbackId: "Coba katakan lebih banyak untuk menunjukkan kamu peduli." }
+              ]
+            }
+          ]
+        }
+      ],
+      upper: [
+        {
+          npc: '😟 Classmate: "I\'m really nervous about the school play tomorrow. What if I forget my lines?"',
+          npcId: '😟 Teman Sekelas: "Aku sangat gugup soal pertunjukan sekolah besok. Bagaimana kalau aku lupa dialognya?"',
+          turns: [
+            {
+              choices: [
+                { text: "I understand how you feel. You've practiced a lot, you'll be great!", textId: "Aku mengerti perasaanmu. Kamu sudah berlatih banyak, kamu akan hebat!", points: 3, feedback: "Perfect empathy and encouragement!", feedbackId: "Empati dan penyemangat yang sempurna!" },
+                { text: "Don't be nervous.", textId: "Jangan gugup.", points: 1, feedback: "Try to show you understand their feeling first.", feedbackId: "Coba tunjukkan kamu mengerti perasaan mereka dulu." }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    quiz: [
+      {
+        situation: 'If a friend is crying, how might they feel?',
+        situationId: 'Jika seorang teman menangis, bagaimana kira-kira perasaan mereka?',
+        options: ['Happy', 'Sad', 'Angry', 'Sleepy'],
+        optionsId: ['Senang', 'Sedih', 'Marah', 'Mengantuk'],
+        correctIndex: 1
+      }
+    ],
+    share: {
+      lower: {
+        title: 'Emotion Circle',
+        titleId: 'Lingkaran Emosi',
+        description: 'Sit in a circle. Show your feeling face and say "I feel..."',
+        descriptionId: 'Duduk melingkar. Tunjukkan wajah perasaanmu dan katakan "I feel..."',
+        activity: 'Pass the emotion: "How are you feeling?"'
+      },
+      upper: {
+        title: 'Empathy Pairs',
+        titleId: 'Pasangan Empati',
+        description: 'Tell a partner how you feel. Partner responds with empathy.',
+        descriptionId: 'Beritahu pasangan perasaanmu. Pasangan merespons dengan empati.',
+        activity: 'Practice saying: "I understand how you feel."'
+      }
+    },
+    roleplay: {
+      lower: [
+        {
+          title: 'The Lost Toy 🧸',
+          titleId: 'Mainan yang Hilang 🧸',
+          scenario: 'Your friend lost their favorite toy. How do they feel? How can you help?',
+          scenarioId: 'Temanmu kehilangan mainan favoritnya. Bagaimana perasaannya? Bagaimana kamu bisa membantu?',
+          npcPrompt: 'Friend: "I can\'t find my teddy bear anywhere... I\'m so sad."',
+          npcPromptId: 'Teman: "Aku tidak bisa menemukan boneka beruangku... Aku sangat sedih."',
+          suggestedPhrases: ["Don't worry, I can help you find it.", "It's okay to feel sad.", "Let's look under the table!"],
+          suggestedPhrasesId: ['Jangan khawatir, aku bisa membantumu mencarinya.', 'Tidak apa-apa merasa sedih.', 'Mari kita cari di bawah meja!'],
+          outcome: 'You helped your friend find the toy and they feel much better!',
+          outcomeId: 'Kamu membantu temanmu menemukan mainannya dan mereka merasa jauh lebih baik!'
+        }
+      ],
+      upper: [
+        {
+          title: 'Testing Jitters 📝',
+          titleId: 'Gugup Ujian 📝',
+          scenario: 'Your friend is very nervous about an upcoming English test.',
+          scenarioId: 'Temanmu sangat gugup menghadapi ujian bahasa Inggris yang akan datang.',
+          npcPrompt: 'Friend: "I\'ve studied for hours but I\'m still so nervous! What if I fail?"',
+          npcPromptId: 'Teman: "Aku sudah belajar berjam-jam tapi aku masih gugup! Bagaimana kalau aku gagal?"',
+          suggestedPhrases: ["I understand how you feel. I am nervous too.", "You have studied hard, you will be fine!", "Let's review together for 10 minutes."],
+          suggestedPhrasesId: ['Aku mengerti perasaanmu. Aku juga gugup.', 'Kamu sudah belajar keras, kamu akan baik-baik saja!', 'Mari kita tinjau bersama selama 10 menit.'],
+          outcome: 'Your friend feels calmer and more confident. Empathy wins!',
+          outcomeId: 'Temanmu merasa lebih tenang dan percaya diri. Empati menang!'
+        }
+      ]
+    }
   }
 ];
 

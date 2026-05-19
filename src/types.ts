@@ -6,7 +6,7 @@
 export type GradeLevel = 'lower' | 'upper';
 export type Language = 'en' | 'id';
 
-export type WeekId = 'break-the-ice' | 'early-bird' | 'penny-thoughts' | 'getting-to-know' | 'whats-the-scoop' | 'lend-a-hand' | 'hunting-high-low' | 'pat-on-back';
+export type WeekId = 'break-the-ice' | 'early-bird' | 'penny-thoughts' | 'getting-to-know' | 'whats-the-scoop' | 'lend-a-hand' | 'hunting-high-low' | 'pat-on-back' | 'how-are-you-feeling';
 
 export interface VocabularyItem {
   word: string;
