@@ -14,15 +14,27 @@ import { RoleplayMission } from './practice/RoleplayMission';
 import { LessonTasks } from './practice/LessonTasks';
 import { TreasureGame } from './practice/TreasureGame';
 import { SentenceFrames } from './practice/SentenceFrames';
+import { SectionCompletionCard } from './achievements/SectionCompletionCard';
 
 interface PracticeSectionProps {
   gradeLevel: GradeLevel;
   weekData: WeekData;
   theme: { border: string, text: string, bg: string, accent: string, gradient: string };
   language: Language;
+  isPracticeCompleted?: boolean;
+  onTogglePracticeComplete?: () => void;
+  onViewBadge?: () => void;
 }
 
-export const PracticeSection: React.FC<PracticeSectionProps> = ({ gradeLevel, weekData, theme, language }) => {
+export const PracticeSection: React.FC<PracticeSectionProps> = ({ 
+  gradeLevel, 
+  weekData, 
+  theme, 
+  language,
+  isPracticeCompleted = false,
+  onTogglePracticeComplete,
+  onViewBadge
+}) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -69,6 +81,18 @@ export const PracticeSection: React.FC<PracticeSectionProps> = ({ gradeLevel, we
           />
         )}
       </div>
+
+      {onTogglePracticeComplete && (
+        <SectionCompletionCard
+          section="practice"
+          weekData={weekData}
+          language={language}
+          theme={theme}
+          isCompleted={isPracticeCompleted}
+          onToggleComplete={onTogglePracticeComplete}
+          onViewBadge={onViewBadge}
+        />
+      )}
     </motion.div>
   );
 };

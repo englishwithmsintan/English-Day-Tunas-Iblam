@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Scissors, Palette, Lightbulb, CheckCircle2, Download, Sparkles, Printer, Info, ArrowRight } from 'lucide-react';
+import { Scissors, Palette, Lightbulb, CheckCircle2, Download, Sparkles, Printer, Info, ArrowRight, Check } from 'lucide-react';
 import { GradeLevel, WeekData, Language } from '../types';
+import { SectionCompletionCard } from './achievements/SectionCompletionCard';
 
 interface CreateSectionProps {
   gradeLevel: GradeLevel;
   weekData: WeekData;
   theme: any;
   language: Language;
+  isCreateCompleted?: boolean;
+  onToggleCreateComplete?: () => void;
+  onViewBadge?: () => void;
 }
 
-export const CreateSection: React.FC<CreateSectionProps> = ({ gradeLevel, weekData, theme, language }) => {
+export const CreateSection: React.FC<CreateSectionProps> = ({ 
+  gradeLevel, 
+  weekData, 
+  theme, 
+  language,
+  isCreateCompleted = false,
+  onToggleCreateComplete,
+  onViewBadge
+}) => {
+  const [checkedSteps, setCheckedSteps] = useState<Record<number, boolean>>({});
   if (!weekData.physicalOutput) return null;
 
   const output = gradeLevel === 'lower' ? weekData.physicalOutput.lower : weekData.physicalOutput.upper;
@@ -64,24 +77,40 @@ export const CreateSection: React.FC<CreateSectionProps> = ({ gradeLevel, weekDa
                 {/* Vertical Line for steps */}
                 <div className="absolute left-6 top-8 bottom-8 w-1 bg-bg-darker rounded-full hidden md:block" />
                 
-                {(language === 'en' ? output.steps : output.stepsId || output.steps).map((step, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group relative flex items-start gap-6 bg-white p-6 rounded-[32px] border-2 border-bg-darker hover:border-purple-300 hover:shadow-xl transition-all duration-300"
-                  >
-                    <div className={`flex-shrink-0 w-12 h-12 rounded-2xl ${theme.bg} ${theme.text} flex items-center justify-center font-black text-xl shadow-lg group-hover:scale-110 transition-transform z-10`}>
-                      {index + 1}
-                    </div>
-                    <div className="pt-1">
-                      <p className="text-lg text-t2 font-fredoka font-bold leading-snug">{step}</p>
-                    </div>
-                    <ArrowRight className={`absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 ${theme.text} opacity-0 group-hover:opacity-20 group-hover:translate-x-2 transition-all`} />
-                  </motion.div>
-                ))}
+                {(language === 'en' ? output.steps : output.stepsId || output.steps).map((step, index) => {
+                  const isChecked = !!checkedSteps[index];
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      onClick={() => setCheckedSteps(prev => ({ ...prev, [index]: !prev[index] }))}
+                      className={`group relative flex items-start gap-5 p-5 sm:p-6 rounded-[32px] border-2 cursor-pointer transition-all duration-300 ${
+                        isChecked 
+                          ? 'bg-emerald-50/70 border-emerald-300 shadow-md' 
+                          : 'bg-white border-bg-darker hover:border-purple-300 hover:shadow-xl'
+                      }`}
+                    >
+                      <div className={`flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center font-black text-xl shadow-lg group-hover:scale-110 transition-transform z-10 ${
+                        isChecked 
+                          ? 'bg-emerald-500 text-white' 
+                          : `${theme.bg} ${theme.text}`
+                      }`}>
+                        {isChecked ? <Check size={24} /> : index + 1}
+                      </div>
+                      <div className="pt-1 flex-1">
+                        <p className={`text-lg font-fredoka font-bold leading-snug ${isChecked ? 'text-emerald-900 line-through opacity-80' : 'text-t2'}`}>
+                          {step}
+                        </p>
+                      </div>
+                      <span className="text-xs font-fredoka font-bold text-slate-400 group-hover:text-slate-600 self-center">
+                        {isChecked ? '✓' : (language === 'en' ? 'Tap to check' : 'Ketuk')}
+                      </span>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 
@@ -206,6 +235,18 @@ export const CreateSection: React.FC<CreateSectionProps> = ({ gradeLevel, weekDa
             ))}
           </div>
         </div>
+      )}
+
+      {onToggleCreateComplete && (
+        <SectionCompletionCard
+          section="create"
+          weekData={weekData}
+          language={language}
+          theme={theme}
+          isCompleted={isCreateCompleted}
+          onToggleComplete={onToggleCreateComplete}
+          onViewBadge={onViewBadge}
+        />
       )}
     </div>
   );

@@ -109,6 +109,44 @@ export const WEEKS: WeekData[] = [
         description: 'Write a short story about a surprising event. Use sequence words like First, Then, Suddenly, and Eventually.',
         activity: 'First, ____. Meanwhile, ____. Suddenly, ____. Eventually, ____.'
       }
+    },
+    physicalOutput: {
+      lower: {
+        title: '“My Weekend Story” Card',
+        titleId: 'Kartu “Cerita Akhir Pekanku”',
+        steps: [
+          'Draw a picture of your favorite weekend memory.',
+          'Write ONE past tense sentence: "Yesterday, I went to ____." or "I played ____ with ____."',
+          'Decorate with colorful borders and emojis!'
+        ],
+        stepsId: [
+          'Gambar kenangan akhir pekan favoritmu.',
+          'Tulis SATU kalimat lampau: "Yesterday, I went to ____." atau "I played ____ with ____."',
+          'Hias dengan bingkai warna-warni dan emoji!'
+        ],
+        keep: 'Show your story card to your partner and read it out loud!',
+        keepId: 'Tunjukkan kartu ceritamu ke teman dan bacakan dengan lantang!',
+        example: 'Yesterday, I played football in the park with my brother.',
+        exampleId: 'Yesterday, I played football in the park with my brother.'
+      },
+      upper: {
+        title: '“Surprise Story” Comic Strip',
+        titleId: 'Komik Strip “Cerita Kejutan”',
+        steps: [
+          'Fold a paper into 3 comic frames (First, Suddenly, Eventually).',
+          'Draw what happened in sequence.',
+          'Write a descriptive caption under each frame using past continuous or sequence words.'
+        ],
+        stepsId: [
+          'Lipat kertas menjadi 3 kotak komik (First, Suddenly, Eventually).',
+          'Gambar peristiwa yang terjadi secara berurutan.',
+          'Tulis keterangan deskriptif di bawah setiap kotak dengan kata urutan.'
+        ],
+        keep: 'Display your comic strip on the classroom bulletin board!',
+        keepId: 'Pajang komik stripmu di mading kelas!',
+        example: 'First, I was walking. Suddenly, a cat jumped! Eventually, we became friends.',
+        exampleId: 'First, I was walking. Suddenly, a cat jumped! Eventually, we became friends.'
+      }
     }
   },
   {
@@ -209,6 +247,48 @@ export const WEEKS: WeekData[] = [
         description: 'Look at Messy Max\'s schedule and rewrite it to be more productive.',
         activity: 'Max should ____ first because it is necessary. Then, he can ____.'
       }
+    },
+    physicalOutput: {
+      lower: {
+        title: '“My Daily Clock” Wheel',
+        titleId: 'Roda “Jam Harianku”',
+        steps: [
+          'Fold a paper plate or draw a large circle divided into 4 quarters: Morning, Afternoon, Evening, Night.',
+          'In each quarter, draw ONE routine activity you MUST do.',
+          'Write a sentence: "In the morning, I must brush my teeth."',
+          'Decorate with bright sun, clouds, and stars!'
+        ],
+        stepsId: [
+          'Gunakan piring kertas atau gambar lingkaran besar yang dibagi 4: Pagi, Siang, Sore, Malam.',
+          'Di setiap bagian, gambar SATU rutinitas yang WAJIB kamu lakukan.',
+          'Tulis kalimat: "In the morning, I must brush my teeth."',
+          'Hias dengan matahari cerah, awan, dan bintang!'
+        ],
+        keep: 'Place it on your study desk to stay on track all day!',
+        keepId: 'Pajang di meja belajarmu agar harimu selalu teratur!',
+        example: 'Morning: "I must wake up at 5:30 AM and pray."',
+        exampleId: 'Pagi: "I must wake up at 5:30 AM and pray."'
+      },
+      upper: {
+        title: '“Master Routine” Priority Board',
+        titleId: 'Papan Prioritas “Rutinitas Hebat”',
+        steps: [
+          'Create a 2-column board: "Necessary Tasks" vs "Optional Fun".',
+          'Write 3 tasks under each column using must, should, and can.',
+          'Color code Green (Necessary) and Orange (Optional).',
+          'Add a golden tip: "Finish necessary tasks first!"'
+        ],
+        stepsId: [
+          'Buat papan 2 kolom: "Necessary Tasks" vs "Optional Fun".',
+          'Tulis 3 kegiatan di setiap kolom menggunakan must, should, dan can.',
+          'Beri kode warna Hijau (Wajib) dan Oranye (Pilihan).',
+          'Tambahkan tips emas: "Finish necessary tasks first!"'
+        ],
+        keep: 'Show your priority board to your teacher and group!',
+        keepId: 'Tunjukkan papan prioritaskanmu kepada guru dan kelompokmu!',
+        example: 'Necessary: "Studying English is necessary for tests."',
+        exampleId: 'Wajib: "Studying English is necessary for tests."'
+      }
     }
   },
   {
@@ -307,6 +387,48 @@ export const WEEKS: WeekData[] = [
         title: '30-Second Sales Pitch',
         description: 'Pick an object and try to "sell" it to the class by comparing it to another object.',
         activity: 'You should buy ____ because ____. It is better than ____ since ____.'
+      }
+    },
+    physicalOutput: {
+      lower: {
+        title: '“This or That” Opinion Card',
+        titleId: 'Kartu Pendapat “Ini atau Itu”',
+        steps: [
+          'Choose two fun things to compare (e.g. Cats vs Dogs, Apples vs Bananas).',
+          'Draw both items side-by-side with lots of color.',
+          'Draw a golden crown on your favorite one.',
+          'Write: "In my opinion, cats are cuter than dogs!"'
+        ],
+        stepsId: [
+          'Pilih dua benda seru untuk dibandingkan (misal Kucing vs Anjing, Apel vs Pisang).',
+          'Gambar kedua benda berdampingan dengan penuh warna.',
+          'Beri mahkota emas pada pilihan favoritmu.',
+          'Tulis: "In my opinion, cats are cuter than dogs!"'
+        ],
+        keep: 'Show your friend and ask: "Do you agree with my opinion?"',
+        keepId: 'Tunjukkan ke temanmu dan tanyakan: "Do you agree with my opinion?"',
+        example: 'In my opinion, ice cream is better than cake because it is cooler!',
+        exampleId: 'In my opinion, ice cream is better than cake because it is cooler!'
+      },
+      upper: {
+        title: '“Review & Compare” Product Badge',
+        titleId: 'Lencana Produk “Ulas & Bandingkan”',
+        steps: [
+          'Select two classroom tools (e.g. Mechanical Pencil vs Wooden Pencil).',
+          'Compare quality, price, and usefulness using comparative adjectives.',
+          'Rate each with 1 to 5 stars ⭐.',
+          'Conclude with: "Even though X is cheaper, Y is more durable."'
+        ],
+        stepsId: [
+          'Pilih dua perlengkapan kelas (misal Pensil Mekanik vs Pensil Kayu).',
+          'Bandingkan kualitas, harga, dan kegunaan menggunakan kata sifat komparatif.',
+          'Beri peringkat 1 sampai 5 bintang ⭐.',
+          'Tulis kesimpulan: "Even though X is cheaper, Y is more durable."'
+        ],
+        keep: 'Present your mini product review to your classmates!',
+        keepId: 'Presentasikan ulasan produk minumu kepada teman sekelas!',
+        example: 'Mechanical pencils are more expensive, but they are cleaner to use.',
+        exampleId: 'Pensil mekanik lebih mahal, tapi lebih rapi saat digunakan.'
       }
     }
   },
@@ -407,6 +529,48 @@ export const WEEKS: WeekData[] = [
         description: 'Interview your partner about their experiences using "Have you ever...?"',
         activity: 'I found out that my partner has visited a beach. He went there last year.'
       }
+    },
+    physicalOutput: {
+      lower: {
+        title: '“All About Me” Superhero Badge',
+        titleId: 'Lencana Pahlawan “Semua Tentangku”',
+        steps: [
+          'Cut or draw a shield or star badge shape on paper.',
+          'Draw your portrait wearing a hero cape.',
+          'Write 2 special abilities: "I can draw." and "I can speak English."',
+          'Wear or tape your badge proudly on your chest!'
+        ],
+        stepsId: [
+          'Gunting atau gambar bentuk perisai atau bintang di kertas.',
+          'Gambar potret dirimu dengan jubah pahlawan.',
+          'Tulis 2 kemampuan istimewa: "I can draw." dan "I can speak English."',
+          'Tempelkan atau gunakan lencanamu dengan bangga!'
+        ],
+        keep: 'Introduce your superhero power to 3 classmates!',
+        keepId: 'Perkenalkan kekuatan pahlawanmu kepada 3 teman sekelas!',
+        example: 'Hero Name: Super Farih. "I can run fast and help friends!"',
+        exampleId: 'Nama Pahlawan: Super Farih. "I can run fast and help friends!"'
+      },
+      upper: {
+        title: '“Classmate Passport” Profile',
+        titleId: 'Profil “Paspor Sahabat”',
+        steps: [
+          'Fold a paper into a passport booklet.',
+          'Page 1: Write your details (Name, favorite hobby, dream job).',
+          'Page 2: Interview a classmate with "Have you ever...?" questions.',
+          'Write: "My friend has traveled to Bali and can play guitar."'
+        ],
+        stepsId: [
+          'Lipat kertas menjadi buku kecil paspor.',
+          'Halaman 1: Tulis data dirimu (Nama, hobi favorit, cita-cita).',
+          'Halaman 2: Wawancarai teman dengan pertanyaan "Have you ever...?".',
+          'Tulis: "My friend has traveled to Bali and can play guitar."'
+        ],
+        keep: 'Swap stamps or signatures with your interview partner!',
+        keepId: 'Tukarkan cap atau tanda tangan dengan teman wawancaramu!',
+        example: 'Visa entry: "Visited Monas, tasted spicy ramen, won chess match."',
+        exampleId: 'Cap kunjungan: "Pernah ke Monas, makan ramen pedas, juara catur."'
+      }
     }
   },
   {
@@ -505,6 +669,48 @@ export const WEEKS: WeekData[] = [
         title: 'Breaking News Broadcast',
         description: 'Create a detailed news report using advanced reporting verbs.',
         activity: 'The witness explained that ____. He also mentioned that ____.'
+      }
+    },
+    physicalOutput: {
+      lower: {
+        title: '“Junior Reporter” Press Pass',
+        titleId: 'Kartu Pers “Wartawan Cilik”',
+        steps: [
+          'Fold a small card in half to make an official reporter pass.',
+          'Draw your portrait and write "OFFICIAL REPORTER" across the top.',
+          'Write the 3 big questions on the back: "Who? What? Where?"',
+          'Clip or wear it during your class news report!'
+        ],
+        stepsId: [
+          'Lipat kartu kecil menjadi dua untuk membuat tanda pers resmi.',
+          'Gambar potretmu dan tulis "OFFICIAL REPORTER" di bagian atas.',
+          'Tulis 3 pertanyaan penting di belakang: "Who? What? Where?"',
+          'Kenakan kartu pers ini saat menyampaikan laporan berita kelasmu!'
+        ],
+        keep: 'Use your press pass whenever you interview a classmate!',
+        keepId: 'Gunakan kartu persmu setiap kali mewawancarai teman sekelas!',
+        example: 'Headline: "The reporter said that the football team won!"',
+        exampleId: 'Judul: "The reporter said that the football team won!"'
+      },
+      upper: {
+        title: '“Breaking News” Front Page',
+        titleId: 'Halaman Depan “Berita Hangat”',
+        steps: [
+          'Create a mini newspaper front page named "Tunas Iblam Daily".',
+          'Write a bold headline about an exciting school event.',
+          'Write a 3-sentence article using reporting verbs: said, told, explained.',
+          'Draw an eyewitness sketch with a caption.'
+        ],
+        stepsId: [
+          'Buat halaman depan koran mini berjudul "Tunas Iblam Daily".',
+          'Tulis judul berita yang menarik tentang kegiatan sekolah.',
+          'Tulis artikel 3 kalimat dengan reporting verbs: said, told, explained.',
+          'Gambar sketsa saksi mata lengkap dengan takarirnya.'
+        ],
+        keep: 'Post your front page on the school news board!',
+        keepId: 'Pajang halaman depan koranmu di papan info sekolah!',
+        example: 'Headline: "Teacher explained the new science lab rules to students."',
+        exampleId: 'Judul: "Teacher explained the new science lab rules to students."'
       }
     }
   },

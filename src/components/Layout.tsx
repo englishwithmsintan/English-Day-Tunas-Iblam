@@ -5,8 +5,9 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Link, MessageSquare, Gamepad2, Share2, ChevronDown, Scissors, Languages } from 'lucide-react';
+import { Link, MessageSquare, Gamepad2, Share2, ChevronDown, Scissors, Languages, Trophy, Star } from 'lucide-react';
 import { WeekData, WeekId, Language } from '../types';
+import { WeekProgress, ACHIEVEMENTS_META } from '../services/achievementService';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,6 +21,9 @@ interface LayoutProps {
   setGradeLevel: (level: any) => void;
   language: Language;
   setLanguage: (lang: Language) => void;
+  achievements?: Record<string, WeekProgress>;
+  onOpenAchievementsGallery?: () => void;
+  onReplayCelebration?: (week: WeekData) => void;
 }
 
 export const Layout: React.FC<LayoutProps> = ({ 
@@ -33,7 +37,10 @@ export const Layout: React.FC<LayoutProps> = ({
   gradeLevel,
   setGradeLevel,
   language,
-  setLanguage
+  setLanguage,
+  achievements,
+  onOpenAchievementsGallery,
+  onReplayCelebration
 }) => {
   const formatTime = (seconds: number) => {
     const h = Math.floor(seconds / 3600);
@@ -45,11 +52,25 @@ export const Layout: React.FC<LayoutProps> = ({
     return `${m}:${s.toString().padStart(2, '0')}`;
   };
 
+  const unlockedBadgesCount = weeks.filter(w => achievements?.[w.id]?.unlocked).length;
+  const isPracticeDone = !!achievements?.[selectedWeek.id]?.practiceCompleted;
+  const isCreateDone = !!achievements?.[selectedWeek.id]?.createCompleted;
+
   const tabs = [
     { id: 'connect', label: language === 'en' ? 'Connect & Review' : 'Hubungkan & Tinjau', icon: <Link className="w-5 h-5" /> },
     { id: 'vocab', label: language === 'en' ? 'Vocabulary' : 'Kosakata', icon: <MessageSquare className="w-5 h-5" /> },
-    { id: 'practice', label: language === 'en' ? 'Explore & Practice' : 'Jelajahi & Latih', icon: <Gamepad2 className="w-5 h-5" /> },
-    ...(selectedWeek.physicalOutput ? [{ id: 'create', label: language === 'en' ? 'Create & Display' : 'Buat & Pajang', icon: <Scissors className="w-5 h-5" /> }] : []),
+    { 
+      id: 'practice', 
+      label: language === 'en' ? 'Explore & Practice' : 'Jelajahi & Latih', 
+      icon: <Gamepad2 className="w-5 h-5" />,
+      completed: isPracticeDone
+    },
+    ...(selectedWeek.physicalOutput ? [{ 
+      id: 'create', 
+      label: language === 'en' ? 'Create & Display' : 'Buat & Pajang', 
+      icon: <Scissors className="w-5 h-5" />,
+      completed: isCreateDone
+    }] : []),
     { id: 'share', label: language === 'en' ? 'Share & Assess' : 'Bagikan & Nilai', icon: <Share2 className="w-5 h-5" /> },
   ];
 
@@ -64,6 +85,7 @@ export const Layout: React.FC<LayoutProps> = ({
     'lend-a-hand': { border: 'border-teal-400', text: 'text-teal-600', bg: 'bg-teal-50', accent: 'bg-teal-100', gradient: 'from-teal-400 to-teal-600' },
     'hunting-high-low': { border: 'border-green-400', text: 'text-green-600', bg: 'bg-green-50', accent: 'bg-green-100', gradient: 'from-green-400 to-green-600' },
     'pat-on-back': { border: 'border-rose-400', text: 'text-rose-600', bg: 'bg-rose-50', accent: 'bg-rose-100', gradient: 'from-rose-400 to-rose-600' },
+    'how-are-you-feeling': { border: 'border-amber-400', text: 'text-amber-600', bg: 'bg-amber-50', accent: 'bg-amber-100', gradient: 'from-amber-400 to-pink-500' },
   };
 
   const theme = themeColors[selectedWeek.id] || { border: 'border-teal-400', text: 'text-teal-600', bg: 'bg-teal-50', accent: 'bg-teal-100', gradient: 'from-teal-400 to-teal-600' };
@@ -87,27 +109,33 @@ export const Layout: React.FC<LayoutProps> = ({
         ))}
       </div>
 
-      {/* Week Selector, Grade Toggle & Stopwatch */}
+      {/* Week Selector, Grade Toggle, Achievements & Stopwatch */}
       <div className="fixed top-3 left-4 right-4 flex flex-col md:flex-row justify-between items-center gap-3 z-50 pointer-events-none">
         <div className="flex flex-col md:flex-row items-center gap-3 pointer-events-auto w-full md:w-auto">
           {/* Smaller, Adjusted Week Selector with Scroller */}
           <div className="relative max-w-full md:max-w-none">
             <div className={`bg-white/90 backdrop-blur-sm border-2 ${theme.border} rounded-2xl p-1 shadow-lg flex items-center gap-1 overflow-x-auto no-scrollbar scroll-smooth`}>
-              {weeks.map((week) => (
-                <button
-                  key={week.id}
-                  onClick={() => onWeekSelect(week.id)}
-                  className={`
-                    flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-fredoka font-bold text-xs transition-all whitespace-nowrap active:scale-95
-                    ${selectedWeek.id === week.id 
-                      ? `bg-gradient-to-br ${theme.gradient} text-white shadow-md` 
-                      : 'bg-transparent text-t2 hover:bg-bg-darker'}
-                  `}
-                >
-                  <span className="font-black text-sm">{week.badge.split(' ')[1]}</span>
-                  <span className="text-base">{week.badge.split(' ')[2]}</span>
-                </button>
-              ))}
+              {weeks.map((week) => {
+                const isWeekUnlocked = !!achievements?.[week.id]?.unlocked;
+                return (
+                  <button
+                    key={week.id}
+                    onClick={() => onWeekSelect(week.id)}
+                    className={`
+                      flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-fredoka font-bold text-xs transition-all whitespace-nowrap active:scale-95
+                      ${selectedWeek.id === week.id 
+                        ? `bg-gradient-to-br ${theme.gradient} text-white shadow-md` 
+                        : 'bg-transparent text-t2 hover:bg-bg-darker'}
+                    `}
+                  >
+                    <span className="font-black text-sm">{week.badge.split(' ')[1]}</span>
+                    <span className="text-base">{week.badge.split(' ')[2]}</span>
+                    {isWeekUnlocked && (
+                      <span className="text-amber-400 text-xs drop-shadow-xs">⭐</span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -132,7 +160,20 @@ export const Layout: React.FC<LayoutProps> = ({
           </div>
         </div>
 
-        <div className="flex items-center gap-3 pointer-events-auto">
+        <div className="flex items-center gap-2.5 pointer-events-auto">
+          {/* Achievements Showcase Button */}
+          <button
+            onClick={onOpenAchievementsGallery}
+            className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-500 hover:to-yellow-500 text-white font-fredoka font-black text-xs rounded-2xl shadow-lg border-2 border-yellow-200 transition-all active:scale-95 cursor-pointer"
+            title={language === 'en' ? 'Student Achievements & Badges' : 'Prestasi & Lencana Siswa'}
+          >
+            <Trophy className="w-4 h-4 text-white" />
+            <span className="hidden sm:inline">{language === 'en' ? 'Badges' : 'Lencana'}</span>
+            <span className="bg-white/30 backdrop-blur-xs px-2 py-0.5 rounded-full text-[10px]">
+              {unlockedBadgesCount}/{weeks.length}
+            </span>
+          </button>
+
           {/* Language Toggle */}
           <button
             onClick={() => setLanguage(language === 'en' ? 'id' : 'en')}
@@ -177,6 +218,23 @@ export const Layout: React.FC<LayoutProps> = ({
             <div className={`inline-flex items-center gap-3 bg-white border-4 ${theme.border} px-8 py-3 rounded-full font-fredoka font-bold text-xl ${theme.text} shadow-lg rotate-1`}>
               {selectedWeek.badge}
             </div>
+
+            {achievements?.[selectedWeek.id]?.unlocked && (
+              <div className="mt-4 flex justify-center">
+                <button
+                  onClick={() => onReplayCelebration && onReplayCelebration(selectedWeek)}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 hover:from-yellow-500 hover:to-orange-500 text-white px-6 py-2.5 rounded-full font-fredoka font-black text-sm uppercase tracking-wider shadow-lg hover:scale-105 active:scale-95 transition-all cursor-pointer animate-pulse"
+                  title={language === 'en' ? 'Tap to replay celebration' : 'Ketuk untuk putar perayaan'}
+                >
+                  <Trophy size={18} />
+                  <span>
+                    {language === 'en' 
+                      ? '⭐ Week Badge Unlocked! (Tap to Celebrate)' 
+                      : '⭐ Lencana Terbuka! (Ketuk untuk Rayakan)'}
+                  </span>
+                </button>
+              </div>
+            )}
           </motion.div>
           
           {/* Animated background shapes */}
@@ -192,14 +250,19 @@ export const Layout: React.FC<LayoutProps> = ({
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`
-                  flex items-center gap-2 px-6 py-4 rounded-2xl font-fredoka font-bold text-lg transition-all duration-300 whitespace-nowrap
+                  flex items-center gap-2 px-6 py-4 rounded-2xl font-fredoka font-bold text-lg transition-all duration-300 whitespace-nowrap relative
                   ${activeTab === tab.id 
                     ? `bg-white border-4 ${theme.border} ${theme.text} shadow-xl scale-105 md:scale-110 -translate-y-1` 
                     : `bg-white border-2 border-bg-darker text-t2 hover:${theme.bg} hover:${theme.border} hover:${theme.text}`}
                 `}
               >
                 {tab.icon}
-                {tab.label}
+                <span>{tab.label}</span>
+                {tab.completed && (
+                  <span className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-black shadow-xs">
+                    ✓
+                  </span>
+                )}
               </button>
             ))}
           </div>
